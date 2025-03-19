@@ -29,7 +29,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Thomas Glenn, Magnus Culley
+          Thomas Glenn, Magnus Culley, Benjamin Wootten
         </p>
         <a
           className="App-link"
