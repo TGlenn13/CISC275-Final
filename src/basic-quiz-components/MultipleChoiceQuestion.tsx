@@ -1,10 +1,12 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 
-export function MultipleChoiceQuestion(): React.JSX.Element {
+export function MultipleChoiceQuestion({question, options}: {question: string, options: string[]}): React.JSX.Element {
     return (
         <div>
-            Question
+            {question}
+            {options.map((option: string): React.JSX.Element => {
+                return <div>{option}</div>
+            })}
         </div>
     );
 }
