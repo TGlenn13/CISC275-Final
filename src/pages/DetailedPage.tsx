@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { Button } from "react-bootstrap";
 
-export function DetailedAssessment(): React.JSX.Element {
+interface DetailedPageProps{
+  changePage: (pageName: "home" | "basic") => void;
+}
+
+export function DetailedPage({changePage}: DetailedPageProps): React.JSX.Element {
   const [formData, setFormData] = useState({
     strengths: '',
     interests: '',
@@ -18,7 +23,6 @@ export function DetailedAssessment(): React.JSX.Element {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('User Responses:', formData);
-    alert('Responses submitted!');
   };
 
   return (
@@ -27,7 +31,7 @@ export function DetailedAssessment(): React.JSX.Element {
       <form onSubmit={handleSubmit}>
         <div>
           <label>What are your strengths?</label><br />
-          <textarea
+          <input
             name="strengths"
             value={formData.strengths}
             onChange={handleChange}
@@ -56,6 +60,7 @@ export function DetailedAssessment(): React.JSX.Element {
 
         <button type="submit">Submit</button>
       </form>
+        <Button onClick={() => changePage("home")}>go back</Button>
     </div>
   );
 }

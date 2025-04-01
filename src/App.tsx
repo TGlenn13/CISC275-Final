@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import {HomePage} from './pages/HomePage';
 import { BasicPage } from './pages/BasicPage';
+import { DetailedPage } from './pages/DetailedPage';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -38,6 +39,9 @@ function App() {
    if (page === "basic") {
     return <BasicPage changePage={changePage}></BasicPage>;
   }  
+  if (page === "detailed") {
+    return <DetailedPage changePage={changePage}></DetailedPage>;
+  }
   else{
     return <div>not valid</div>
   }

@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import logo from "../logo.svg";
 
 interface HomePageProps {
-  changePage: (pageName: "home" | "basic") => void;
+  changePage: (pageName: "home" | "basic" | "detailed") => void;
   changeKey: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: () => void;
   keyValue: string;
@@ -29,6 +29,7 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
         </Button>
       </Form>
       <Button onClick={() => changePage("basic")}>Basic Career Assessment</Button>
+      <Button onClick={() => changePage("detailed")}>Detailed Career Assessment</Button>
     </div>
   );
 }
