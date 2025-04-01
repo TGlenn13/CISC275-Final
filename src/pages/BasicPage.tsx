@@ -1,10 +1,14 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-export function BasicPage(): React.JSX.Element{
+interface BasicPageProps{
+    changePage: (pageName: "home" | "basic") => void;
+}
+
+export function BasicPage({changePage}:BasicPageProps): React.JSX.Element{
     return(
     <div>
-        hi
+        <Button onClick={() => changePage("home")}>go back</Button>
     </div>
     )
 }

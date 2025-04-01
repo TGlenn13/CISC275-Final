@@ -36,7 +36,7 @@ function App() {
     return <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>;
   }
    if (page === "basic") {
-    return <BasicPage/>;
+    return <BasicPage changePage={changePage}></BasicPage>;
   }  
   else{
     return <div>not valid</div>
