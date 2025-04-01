@@ -30,7 +30,8 @@ function App() {
     setPage(pageName);
     }
   }
-    return <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>;  
+    
+  return <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>;  
 }
 
 export default App;

@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css'
 import { Button, Form } from "react-bootstrap";
 import logo from "../logo.svg";
 
@@ -11,7 +12,7 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ changePage, changeKey, handleSubmit, keyValue }) => {
   return (
-    <div>
+    <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Thomas Glenn, Magnus Culley, Benjamin Wootten</p>
