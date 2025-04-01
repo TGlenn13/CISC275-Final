@@ -10,7 +10,7 @@ interface HomePageProps {
   keyValue: string;
 }
 
-export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: HomePageProps) {
+export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: HomePageProps):React.JSX.Element {
   return (
     <div className="App">
       <header className="App-header">
