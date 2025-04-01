@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import HomePage from './pages/HomePage';
+import {HomePage} from './pages/HomePage';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -30,7 +30,6 @@ function App() {
     setPage(pageName);
     }
   }
-    
   return <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>;  
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import '../App.css'
+import '../App.css';
 import { Button, Form } from "react-bootstrap";
 import logo from "../logo.svg";
 
@@ -10,7 +10,7 @@ interface HomePageProps {
   keyValue: string;
 }
 
-const HomePage: React.FC<HomePageProps> = ({ changePage, changeKey, handleSubmit, keyValue }) => {
+export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: HomePageProps) {
   return (
     <div className="App">
       <header className="App-header">
@@ -31,6 +31,4 @@ const HomePage: React.FC<HomePageProps> = ({ changePage, changeKey, handleSubmit
       <Button onClick={() => changePage("basic")}>Basic Career Assessment</Button>
     </div>
   );
-};
-
-export default HomePage;
+}
