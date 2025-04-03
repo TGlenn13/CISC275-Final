@@ -3,25 +3,27 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders learn react link (38 ms)
+  ✓ renders learn react link (39 ms)
 
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------|---------|----------|---------|---------|-------------------
-All files            |   19.56 |     12.5 |    12.5 |      20 |                   
- src                 |    25.8 |     12.5 |   16.66 |    25.8 |                   
-  App.tsx            |      40 |    16.66 |      25 |      40 | 12,20-32,39-46    
-  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
- src/pages           |    6.66 |      100 |      10 |    7.14 |                   
-  BasicPage.tsx      |       0 |      100 |       0 |       0 | 9-11              
-  DetailedPage.tsx   |       0 |      100 |       0 |       0 | 9-63              
-  HomePage.tsx       |   33.33 |      100 |   33.33 |   33.33 | 31-32             
----------------------|---------|----------|---------|---------|-------------------
+-----------------------------|---------|----------|---------|---------|-------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------------|---------|----------|---------|---------|-------------------
+All files                    |      18 |     12.5 |   10.52 |   18.36 |                   
+ src                         |    25.8 |     12.5 |   16.66 |    25.8 |                   
+  App.tsx                    |      40 |    16.66 |      25 |      40 | 12,20-32,39-46    
+  index.tsx                  |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts         |       0 |        0 |       0 |       0 | 3-10              
+ src/basic-quiz-components   |       0 |      100 |       0 |       0 |                   
+  MultipleChoiceQuestion.tsx |       0 |      100 |       0 |       0 | 5-14              
+ src/pages                   |    6.66 |      100 |      10 |    7.14 |                   
+  BasicPage.tsx              |       0 |      100 |       0 |       0 | 11-104            
+  DetailedPage.tsx           |       0 |      100 |       0 |       0 | 9-63              
+  HomePage.tsx               |   33.33 |      100 |   33.33 |   33.33 | 31-32             
+-----------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.8 s
+Time:        2.913 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
