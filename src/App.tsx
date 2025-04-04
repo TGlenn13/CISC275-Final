@@ -3,6 +3,7 @@ import './App.css';
 import {HomePage} from './pages/HomePage';
 import { BasicPage } from './pages/BasicPage';
 import { DetailedPage } from './pages/DetailedPage';
+import {Header} from "./elements/Header";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -34,13 +35,25 @@ function App() {
   }
   
   if (page === "home") {
-    return <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>;
+    return (<div>
+      <Header changePage={changePage}></Header>
+      <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>;
+  </div>)
   }
    if (page === "basic") {
-    return <BasicPage changePage={changePage}></BasicPage>;
+    
+    return(<div>
+      <Header changePage={changePage}></Header>
+       <BasicPage></BasicPage>;
+       </div>
+    )
   }  
   if (page === "detailed") {
-    return <DetailedPage changePage={changePage}></DetailedPage>;
+    return (<div>
+      <Header changePage={changePage}></Header>
+       <DetailedPage></DetailedPage>;
+       </div>
+    )
   }
   else{
     return <div>not valid</div>
