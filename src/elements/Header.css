@@ -1,0 +1,14 @@
+.navbar {
+    display: inline;
+    width:100%
+}
+
+.navbutton {
+    background-color: #f8f9fa;
+    color: #212529;
+    border-radius: 0;
+}
+
+.navbutton:hover {
+    cursor: pointer;
+}
