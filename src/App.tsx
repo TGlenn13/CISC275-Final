@@ -51,7 +51,7 @@ function App() {
   if (page === "detailed") {
     return (<div>
       <Header changePage={changePage}></Header>
-       <DetailedPage></DetailedPage>;
+       <DetailedPage></DetailedPage>
        </div>
     )
   }
