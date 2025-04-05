@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from "react-bootstrap";
 
-interface DetailedPageProps{
-  changePage: (pageName: "home" | "basic") => void;
-}
 
-export function DetailedPage({changePage}: DetailedPageProps): React.JSX.Element {
+export function DetailedPage(): React.JSX.Element {
   const [formData, setFormData] = useState({
     strengths: '',
     interests: '',
@@ -60,7 +56,6 @@ export function DetailedPage({changePage}: DetailedPageProps): React.JSX.Element
 
         <button type="submit">Submit</button>
       </form>
-        <Button onClick={() => changePage("home")}>go back</Button>
     </div>
   );
 }

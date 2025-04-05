@@ -1,0 +1,15 @@
+.navbar {
+    display: block;
+    padding:0
+}
+
+.navbutton {
+    background-color: #f8f9fa;
+    color: #212529;
+    border-radius: 0;
+    height:max-content
+}
+
+.navbutton:hover {
+    cursor: pointer;
+}
