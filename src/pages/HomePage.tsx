@@ -1,7 +1,6 @@
 import React from "react";
 import '../App.css';
 import { Button, Form } from "react-bootstrap";
-import logo from "../logo.svg";
 
 interface HomePageProps {
   changePage: (pageName: "home" | "basic" | "detailed") => void;
@@ -13,13 +12,7 @@ interface HomePageProps {
 export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: HomePageProps):React.JSX.Element {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Thomas Glenn, Magnus Culley, Benjamin Wootten</p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <h1>Career Helpi</h1>
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
