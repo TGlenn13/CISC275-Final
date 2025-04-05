@@ -18,24 +18,25 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
       <Row>
         <Col>
           <div className="button-container">
-            <p>The basic career assessment contains simple multiple choice questions and takes just
-              a few minutes to complete. Great for people looking for a quick push in the right direction
-              to finding their future careers!
+            <p>This quick career assessment features simple multiple-choice questions and takes just
+              a few minutes to complete. It’s perfect for anyone seeking a quick nudge toward
+              discovering their career path!
             </p>
             <Button className="button" onClick={() => changePage("basic")}>Basic Career Assessment</Button>
           </div>
         </Col>
         <Col>
           <div className="button-container">
-            <p>The detailed career assessment contains more in-depth short answer questions that
-              may require some serious thinking. This quiz can take around 15 minutes to properly complete,
-              but will give far more detailed results about what career is right for you!
+            <p>The detailed career assessment features short answer questions designed
+              to dive deeper into your interests and strengths. It takes about 15 minutes to complete and
+              provides more personalized insights to help you find the career path that fits you.
             </p>
             <Button className="button" onClick={() => changePage("detailed")}>Detailed Career Assessment</Button>
           </div>
         </Col>
       </Row>
       </div>
+      <div className="footer">
       <Form className="api-input">
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
@@ -44,6 +45,7 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
           Submit
         </Button>
       </Form>
+      </div>
     </div>
   );
 }
