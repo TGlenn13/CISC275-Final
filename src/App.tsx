@@ -37,21 +37,21 @@ function App() {
   if (page === "home") {
     return (<div>
       <Header changePage={changePage}></Header>
-      <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>;
+      <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>
   </div>)
   }
    if (page === "basic") {
     
     return(<div>
       <Header changePage={changePage}></Header>
-       <BasicPage></BasicPage>;
+       <BasicPage></BasicPage>
        </div>
     )
   }  
   if (page === "detailed") {
     return (<div>
       <Header changePage={changePage}></Header>
-       <DetailedPage></DetailedPage>;
+       <DetailedPage></DetailedPage>
        </div>
     )
   }
