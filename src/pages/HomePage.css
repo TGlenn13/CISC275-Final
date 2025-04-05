@@ -18,9 +18,10 @@
 .footer {
     position: absolute;
     bottom: 0;
+    width: 100%
 }
 
 .api-input {
-    width: 30%;
+    width: 20%;
     margin: auto;
 }
