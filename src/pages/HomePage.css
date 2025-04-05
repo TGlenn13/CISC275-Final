@@ -1,0 +1,26 @@
+.button-container {
+    border: 1px solid black;
+    width: 60%;
+    height: 100%;
+    padding: 10px;
+    margin: auto;
+}
+
+.button {
+    width: 90%;
+}
+
+.row-container {
+    padding-top: 5%;
+    padding-bottom: 8%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.api-input {
+    width: 30%;
+    margin: auto;
+}
