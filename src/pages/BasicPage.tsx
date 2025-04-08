@@ -5,6 +5,9 @@ import {QuizProgressBar} from "../quiz-components/ProgressBar";
 
 export function BasicPage(): React.JSX.Element{
     const [progress, setProgress] = useState<number>(0);
+
+    const addProgress = () => {setProgress(progress+1)}
+
     return(
     <div>
         <h1>Basic Career Assessment</h1>
@@ -22,7 +25,7 @@ export function BasicPage(): React.JSX.Element{
                             "Building or repairing things with your hands",
                             "Leading a team or organizing an event"
                             ]}
-                        addProgress={() => {setProgress(progress+1)}}></MultipleChoiceQuestion>
+                        addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
                     <MultipleChoiceQuestion 
                         question={"3. What type of environment do you prefer to work in?"}
@@ -33,7 +36,7 @@ export function BasicPage(): React.JSX.Element{
                             "Hands-on, physical, and practical",
                             "Fast-paced, strategic, and goal-oriented"
                             ]}
-                        addProgress={() => {setProgress(progress+1)}}></MultipleChoiceQuestion>
+                        addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
                     <MultipleChoiceQuestion 
                         question={"5. Which school subject did you (or do you) enjoy the most?"}
@@ -44,7 +47,7 @@ export function BasicPage(): React.JSX.Element{
                             "Woodshop, Engineering, or Home Economics",
                             "Business or Economics"
                             ]}
-                        addProgress={() => {setProgress(progress+1)}}></MultipleChoiceQuestion>
+                        addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
                     <MultipleChoiceQuestion
                         question={"7. What motivates you most in a career?"}
@@ -55,7 +58,7 @@ export function BasicPage(): React.JSX.Element{
                             "Creating tangible results with my work",
                             "Achieving success and recognition"
                             ]}
-                        addProgress={() => {setProgress(progress+1)}}></MultipleChoiceQuestion>
+                        addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
                 </Col>
 
@@ -70,7 +73,7 @@ export function BasicPage(): React.JSX.Element{
                             "From experience and practicality",
                             "Strategically and with long-term goals in mind"
                             ]}
-                        addProgress={() => {setProgress(progress+1)}}></MultipleChoiceQuestion>
+                        addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
                     <MultipleChoiceQuestion 
                         question={"4. What kind of tasks do you find most satisfying?"}
@@ -81,7 +84,7 @@ export function BasicPage(): React.JSX.Element{
                             "Assembling, fixing, or operating tools or machinery",
                             "Planning, negotiating, or managing"
                             ]}
-                        addProgress={() => {setProgress(progress+1)}}></MultipleChoiceQuestion>
+                        addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
                     <MultipleChoiceQuestion 
                         question={"6. How would your friends describe you?"}
@@ -92,7 +95,7 @@ export function BasicPage(): React.JSX.Element{
                             "Resourceful and hands-on",
                             "Ambitious and persuasive"
                             ]}
-                        addProgress={() => {setProgress(progress+1)}}></MultipleChoiceQuestion>
+                        addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
                     <MultipleChoiceQuestion 
                         question={"8. What do you value most in a job?"}
@@ -103,7 +106,7 @@ export function BasicPage(): React.JSX.Element{
                             "Practical skills and independence",
                             "Financial success and leadership opportunities"
                             ]}
-                        addProgress={() => {setProgress(progress+1)}}></MultipleChoiceQuestion>
+                        addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
                 </Col>
             </Row>
