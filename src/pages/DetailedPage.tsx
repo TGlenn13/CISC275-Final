@@ -28,7 +28,9 @@ export function DetailedPage(): React.JSX.Element {
         <div>
           <label>What are your strengths?</label><br />
           <input
+            type="text"
             name="strengths"
+            style={{ width: '400px', height: '40px' }}
             value={formData.strengths}
             onChange={handleChange}
           />
@@ -39,6 +41,7 @@ export function DetailedPage(): React.JSX.Element {
           <input
             type="text"
             name="interests"
+            style={{ width: '400px', height: '40px' }}
             value={formData.interests}
             onChange={handleChange}
           />
@@ -49,6 +52,7 @@ export function DetailedPage(): React.JSX.Element {
           <input
             type="text"
             name="workEnvironment"
+            style={{ width: '400px', height: '40px' }}
             value={formData.workEnvironment}
             onChange={handleChange}
           />
