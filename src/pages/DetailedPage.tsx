@@ -7,6 +7,9 @@ export function DetailedPage(): React.JSX.Element {
     interests: '',
     workEnvironment: '',
   });
+  const [submitted, setSubmitted] = useState(false);
+
+    
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -19,6 +22,7 @@ export function DetailedPage(): React.JSX.Element {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('User Responses:', formData);
+    setSubmitted(true);
   };
 
   return (
@@ -31,7 +35,6 @@ export function DetailedPage(): React.JSX.Element {
             type="text"
             name="strengths"
             style={{ width: '400px', height: '40px' }}
-            value={formData.strengths}
             onChange={handleChange}
           />
         </div>
@@ -42,7 +45,6 @@ export function DetailedPage(): React.JSX.Element {
             type="text"
             name="interests"
             style={{ width: '400px', height: '40px' }}
-            value={formData.interests}
             onChange={handleChange}
           />
         </div>
@@ -53,13 +55,18 @@ export function DetailedPage(): React.JSX.Element {
             type="text"
             name="workEnvironment"
             style={{ width: '400px', height: '40px' }}
-            value={formData.workEnvironment}
             onChange={handleChange}
           />
         </div>
 
         <button type="submit">Submit</button>
+        
       </form>
+      {submitted && (
+        <div style={{ marginTop: '1rem', color: 'green' }}>
+          Responses submitted!
+        </div>
+      )}
     </div>
   );
 }
