@@ -26,12 +26,7 @@ function App() {
     setKey(event.target.value);
   }
   function changePage(pageName:string){
-    if(page==="basic" && pageName==="basic"){ //probably can remove later in implementation
-      setPage("home")
-    }
-    else{
     setPage(pageName);
-    }
   }
   
   if (page === "home") {
