@@ -3,6 +3,8 @@ import { Row, Col} from "react-bootstrap";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 import {QuizProgressBar} from "../quiz-components/ProgressBar";
 
+const QUESTIONCOUNT: number = 8;
+
 export function BasicPage(): React.JSX.Element{
     const [progress, setProgress] = useState<number>(0);
 
@@ -11,7 +13,7 @@ export function BasicPage(): React.JSX.Element{
     return(
     <div>
         <h1>Basic Career Assessment</h1>
-        <QuizProgressBar progress={progress}></QuizProgressBar>
+        <QuizProgressBar progress={progress} barMax={QUESTIONCOUNT}></QuizProgressBar>
         <br></br>
         <div>
             <Row>
