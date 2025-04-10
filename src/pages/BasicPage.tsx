@@ -1,7 +1,8 @@
 import  React, { useState } from "react";
-import { Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 import {QuizProgressBar} from "../quiz-components/ProgressBar";
+import {QuestionPage} from "../quiz-components/QuestionPage";
 
 export function BasicPage(): React.JSX.Element{
     const [progress, setProgress] = useState<number>(0);
@@ -51,7 +52,7 @@ export function BasicPage(): React.JSX.Element{
             addProgress={addProgress}></MultipleChoiceQuestion>
     ]
 
-    const page2: React.JSX.Element[] = [
+    const Page2: React.JSX.Element[] = [
         <MultipleChoiceQuestion 
             question={"5. Which school subject did you (or do you) enjoy the most?"}
             options={[
@@ -100,8 +101,9 @@ export function BasicPage(): React.JSX.Element{
         <QuizProgressBar progress={progress}></QuizProgressBar>
         <br></br>
         <div>
+            <QuestionPage pages={[Page1,Page2]}></QuestionPage>
             <Button disabled={progress!==8} onClick={() => console.log("submitted")}>Submit</Button>
         </div>
     </div>
-    )
+    );
 }
