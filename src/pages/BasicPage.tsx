@@ -1,5 +1,5 @@
 import  React, { useState } from "react";
-import { Row, Col} from "react-bootstrap";
+import { Row, Col, Button} from "react-bootstrap";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 import {QuizProgressBar} from "../quiz-components/ProgressBar";
 
@@ -108,6 +108,7 @@ export function BasicPage(): React.JSX.Element{
                             ]}
                         addProgress={addProgress}></MultipleChoiceQuestion>
                     <br></br>
+                    <Button disabled={progress!==8} onClick={() => console.log("submitted")}>Submit</Button>
                 </Col>
             </Row>
         </div>
