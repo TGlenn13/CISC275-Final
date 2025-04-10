@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState} from "react";
+import { ShortAnswerQuestion } from "../quiz-components/ShortAnswerQuestion";
 
 export function DetailedPage(): React.JSX.Element {
   const [formData, setFormData] = useState({
@@ -7,13 +7,12 @@ export function DetailedPage(): React.JSX.Element {
     interests: '',
     workEnvironment: '',
   });
-  const [submitted, setSubmitted] = useState(false);
 
-    
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -29,39 +28,28 @@ export function DetailedPage(): React.JSX.Element {
     <div>
       <h1>Detailed Career Assessment</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>What are your strengths?</label><br />
-          <input
-            type="text"
-            name="strengths"
-            style={{ width: '400px', height: '40px' }}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label>What kind of careers interest you?</label><br />
-          <input
-            type="text"
-            name="interests"
-            style={{ width: '400px', height: '40px' }}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label>What is your preferred work environment?</label><br />
-          <input
-            type="text"
-            name="workEnvironment"
-            style={{ width: '400px', height: '40px' }}
-            onChange={handleChange}
-          />
-        </div>
+        <ShortAnswerQuestion
+          question="What are your strengths?"
+          name="strengths"
+          value={formData.strengths}
+          onChange={handleChange}
+        />
+        <ShortAnswerQuestion
+          question="What kind of careers interest you?"
+          name="interests"
+          value={formData.interests}
+          onChange={handleChange}
+        />
+        <ShortAnswerQuestion
+          question="What is your preferred work environment?"
+          name="workEnvironment"
+          value={formData.workEnvironment}
+          onChange={handleChange}
+        />
 
         <button type="submit">Submit</button>
-        
       </form>
+
       {submitted && (
         <div style={{ marginTop: '1rem', color: 'green' }}>
           Responses submitted!
