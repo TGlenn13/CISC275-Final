@@ -1,5 +1,6 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import { ShortAnswerQuestion } from "../quiz-components/ShortAnswerQuestion";
+import { Button } from "react-bootstrap";
 
 export function DetailedPage(): React.JSX.Element {
   const [formData, setFormData] = useState({
@@ -24,6 +25,16 @@ export function DetailedPage(): React.JSX.Element {
     setSubmitted(true);
   };
 
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted]);
+
+
   return (
     <div>
       <h1>Detailed Career Assessment</h1>
@@ -47,7 +58,7 @@ export function DetailedPage(): React.JSX.Element {
           onChange={handleChange}
         />
 
-        <button type="submit">Submit</button>
+        <Button type="submit"onClick={() => console.log("submitted")}>Submit</Button>
       </form>
 
       {submitted && (
