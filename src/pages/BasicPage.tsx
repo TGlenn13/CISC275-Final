@@ -6,94 +6,116 @@ import {QuestionPage} from "../quiz-components/QuestionPage";
 
 export function BasicPage(): React.JSX.Element{
     const [progress, setProgress] = useState<number>(0);
+    const [answers, setAnswers] = useState<string[]>(Array(8).fill(""));
 
-    const addProgress = () => {setProgress(progress+1)}
+    const changeAnswer = (index: number, answer: string) => {
+        // When an answer is selected in a multiple choice question, update state
+        const updated = [...answers];
+        // update progress bar if unanswered
+        if (updated[index] === "") {
+            setProgress(progress + 1);
+        }
+        updated[index] = answer;
+        setAnswers(updated);
+    }
 
-    const Page1: React.JSX.Element[] = [
-        <MultipleChoiceQuestion
-            question={"1. Which activity sounds the most enjoyable to you?"}
-            options={[
+    const questions = [
+        {
+            question: "1. Which activity sounds the most enjoyable to you?",
+            options: [
                 "Solving puzzles or analyzing data",
                 "Creating art, music, or writing stories",
                 "Helping people solve personal or emotional problems",
                 "Building or repairing things with your hands",
                 "Leading a team or organizing an event"
-            ]}
-            addProgress={addProgress}></MultipleChoiceQuestion>,
-        <MultipleChoiceQuestion 
-            question={"2. How do you typically make decisions?"}
-            options={[
+            ]
+        },
+        {
+            question: "2. How do you typically make decisions?",
+            options: [
                 "Based on logic, facts, and data",
                 "Through creativity and intuition",
                 "By considering others' feelings and needs",
                 "From experience and practicality",
                 "Strategically and with long-term goals in mind"
-            ]}
-            addProgress={addProgress}></MultipleChoiceQuestion>,
-        <MultipleChoiceQuestion 
-            question={"3. What type of environment do you prefer to work in?"}
-            options={[
+            ]
+        },
+        {
+            question: "3. What type of environment do you prefer to work in?",
+            options: [
                 "Quiet, focused, and independent",
                 "Dynamic, expressive, and collaborative",
                 "Supportive and empathetic",
                 "Hands-on, physical, and practical",
                 "Fast-paced, strategic, and goal-oriented"
-            ]}
-            addProgress={addProgress}></MultipleChoiceQuestion>,
-        <MultipleChoiceQuestion 
-            question={"4. What kind of tasks do you find most satisfying?"}
-            options={[
+            ]
+        },
+        {
+            question: "4. What kind of tasks do you find most satisfying?",
+            options: [
                 "Researching, investigating, or experimenting",
                 "Designing, writing, or performing",
                 "Listening, counseling, or caring for others",
                 "Assembling, fixing, or operating tools or machinery",
                 "Planning, negotiating, or managing"
-            ]}
-            addProgress={addProgress}></MultipleChoiceQuestion>
-    ]
-
-    const Page2: React.JSX.Element[] = [
-        <MultipleChoiceQuestion 
-            question={"5. Which school subject did you (or do you) enjoy the most?"}
-            options={[
+            ]
+        },
+        {
+            question: "5. Which school subject did you (or do you) enjoy the most?",
+            options: [
                 "Math or Science",
                 "Art, Literature, or Music",
                 "Psychology or Social Studies",
                 "Woodshop, Engineering, or Home Economics",
                 "Business or Economics"
-            ]}
-            addProgress={addProgress}></MultipleChoiceQuestion>,
-        <MultipleChoiceQuestion 
-            question={"6. How would your friends describe you?"}
-            options={[
+            ]
+        },
+        {
+            question: "6. How would your friends describe you?",
+            options: [
                 "Analytical and thoughtful",
                 "Imaginative and expressive",
                 "Empathetic and supportive",
                 "Resourceful and hands-on",
                 "Ambitious and persuasive"
-            ]}
-            addProgress={addProgress}></MultipleChoiceQuestion>,
-        <MultipleChoiceQuestion
-            question={"7. What motivates you most in a career?"}
-            options={[
+            ]
+        },
+        {
+            question: "7. What motivates you most in a career?",
+            options: [
                 "Solving complex problems and discovering new things",
                 "Expressing myself and inspiring others",
                 "Making a positive difference in people’s lives",
                 "Creating tangible results with my work",
                 "Achieving success and recognition"
-            ]}
-            addProgress={addProgress}></MultipleChoiceQuestion>,
-        <MultipleChoiceQuestion 
-            question={"8. What do you value most in a job?"}
-            options={[
+            ]
+        },
+        {
+            question: "8. What do you value most in a job?",
+            options: [
                 "Intellectual challenge",
                 "Creative freedom",
                 "Human connection",
                 "Practical skills and independence",
                 "Financial success and leadership opportunities"
-            ]}
-            addProgress={addProgress}></MultipleChoiceQuestion>
-    ]
+            ]
+        }
+    ];
+
+    // generated by chatGPT
+    const groupedQuestions = [
+        questions.slice(0, 4).map((q, i) => ({
+            ...q,
+            selectedAnswer: answers[i],
+            onAnswerChange: (a: string) => changeAnswer(i, a)
+        })),
+        questions.slice(4, 8).map((q, i) => ({
+            ...q,
+            selectedAnswer: answers[i + 4],
+            onAnswerChange: (a: string) => changeAnswer(i + 4, a)
+        }))
+    ];
+    // end gpt
 
     return(
     <div>
@@ -101,7 +123,7 @@ export function BasicPage(): React.JSX.Element{
         <QuizProgressBar progress={progress}></QuizProgressBar>
         <br></br>
         <div>
-            <QuestionPage pages={[Page1,Page2]}></QuestionPage>
+            <QuestionPage questionGroups={groupedQuestions}></QuestionPage>
             <Button disabled={progress!==8} onClick={() => console.log("submitted")}>Submit</Button>
         </div>
     </div>
