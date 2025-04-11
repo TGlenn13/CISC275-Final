@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap"
 
-export function MultipleChoiceQuestion({question, options, addProgress}: {question: string, options: string[], addProgress: () => void}): React.JSX.Element {
-    const [chosenOption, setChosenOption] = useState<string>("");
-    
-    function updateProgress() {
-        // Check if no radio button is selected and add 1 to progress if true
-        if (!options.some((option: string): boolean => option===chosenOption)) {
-            addProgress();
-        }
-    }
+export function MultipleChoiceQuestion({question, options, selectedAnswer, onAnswerChange}: 
+    {
+        question: string, options: string[], selectedAnswer: string, onAnswerChange: (answer: string) => void
+    }):React.JSX.Element {
+
+
     return (
         <div>
             {question}
@@ -18,12 +15,11 @@ export function MultipleChoiceQuestion({question, options, addProgress}: {questi
                     type="radio"
                     name={question}
                     onChange={() => {
-                        setChosenOption(option);
-                        updateProgress();
+                        onAnswerChange(option);
                     }}
                     id={"option-" + option}
                     value={option}
-                    checked={chosenOption === option}
+                    checked={selectedAnswer === option}
                     label={option}
                 />
             })}

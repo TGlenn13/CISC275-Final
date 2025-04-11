@@ -18,7 +18,7 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
       <Row>
         <Col>
           <div className="button-container">
-            <p>This quick career assessment features simple multiple-choice questions and takes just
+            <p>The basic career assessment features simple multiple-choice questions and takes just
               a few minutes to complete. It’s perfect for anyone seeking a quick nudge toward
               discovering their career path!
             </p>
