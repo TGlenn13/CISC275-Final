@@ -1,7 +1,6 @@
 export type Question={
     name:string;
     label:string
-    value?:string;
     completed:boolean;
 }
 

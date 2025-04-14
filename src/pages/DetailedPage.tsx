@@ -35,13 +35,12 @@ export function DetailedPage(): React.JSX.Element {
       <h1>Detailed Career Assessment</h1>
       <QuizProgressBar questions={3} progress={progress}></QuizProgressBar>
       <form onSubmit={handleSubmit}>
-      {detailedQuestions.map((q) => (
-  <div key={q.name}>
-    <label>{q.label}</label><br />
+      {detailedQuestions.map((question) => (
+  <div key={question.name}>
+    <label>{question.label}</label><br />
     <input
       type="text"
-      name={q.name}
-      value={formData[q.name as keyof typeof formData]}
+      name={question.name}
       onChange={handleChange}
     />
   </div>
