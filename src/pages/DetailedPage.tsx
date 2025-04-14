@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { Button } from "react-bootstrap";
 import { QuizProgressBar } from "../quiz-components/ProgressBar";
+import {detailedQuestions} from '../quiz-components/DetailedQuestions';
 
 export function DetailedPage(): React.JSX.Element {
   const [formData, setFormData] = useState({
@@ -10,7 +11,7 @@ export function DetailedPage(): React.JSX.Element {
   });
   const [progress, setProgress] = useState<number>(0);
   //const [submitted, setSubmitted] = useState(false);
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     let answer=e.target.value
     let question=e.target.name
@@ -34,35 +35,17 @@ export function DetailedPage(): React.JSX.Element {
       <h1>Detailed Career Assessment</h1>
       <QuizProgressBar questions={3} progress={progress}></QuizProgressBar>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>What are your strengths?</label><br />
-          <input
-            name="strengths"
-            value={formData.strengths}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label>What kind of careers interest you?</label><br />
-          <input
-            type="text"
-            name="interests"
-            value={formData.interests}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label>What is your preferred work environment?</label><br />
-          <input
-            type="text"
-            name="workEnvironment"
-            value={formData.workEnvironment}
-            onChange={handleChange}
-          />
-        </div>
-
+      {detailedQuestions.map((q) => (
+  <div key={q.name}>
+    <label>{q.label}</label><br />
+    <input
+      type="text"
+      name={q.name}
+      value={formData[q.name as keyof typeof formData]}
+      onChange={handleChange}
+    />
+  </div>
+))}
         <Button type="submit">Submit</Button>
       </form>
     </div>
