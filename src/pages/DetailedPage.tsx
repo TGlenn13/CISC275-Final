@@ -8,6 +8,11 @@ export function DetailedPage(): React.JSX.Element {
     strengths: '',
     interests: '',
     workEnvironment: '',
+    preferredTasks: '',
+    idealWork: '',
+    role: '',
+    skills: '',
+    values: ''
   });
   const [progress, setProgress] = useState<number>(0);
   //const [submitted, setSubmitted] = useState(false);
@@ -51,17 +56,21 @@ export function DetailedPage(): React.JSX.Element {
   return (
     <div>
       <h1>Detailed Career Assessment</h1>
-      <QuizProgressBar questions={3} progress={progress}></QuizProgressBar>
+      <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
       <form onSubmit={handleSubmit}>
         {detailedQuestions.map((question) => (
         <div key={question.name}>
           <label>{question.label}</label>
           <br></br>
 
-          <input type="text" name={question.name} value={formData[question.name as keyof typeof formData]}
-          onChange={(e) => handleChange(e, question)}/>
-
+          <textarea
+          name={question.name}
+          value={formData[question.name as keyof typeof formData]}
+          onChange={(e) => handleChange(e, question)}
+          style={{ width: '500px', height: '75px' }}
+          />
         </div>))}
+        {}
         <Button type="submit">Submit</Button>
       </form>
     </div>
