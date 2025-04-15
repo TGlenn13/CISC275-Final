@@ -1,12 +1,15 @@
 import { ProgressBar } from "react-bootstrap"
-
-export function QuizProgressBar({progress}: {progress:number}): React.JSX.Element {
-    if (progress===8){ // Need to update if amount of questions change
+interface ProgressBarProps{
+    questions:number;
+    progress:number;
+}
+export function QuizProgressBar({progress,questions}:ProgressBarProps): React.JSX.Element {
+    if (progress===questions){
         return(
-            <ProgressBar now={progress} max={8} min={0} variant="success"></ProgressBar>
+            <ProgressBar now={progress} max={questions} min={0} variant="success"></ProgressBar>
         )
     }
     return (
-        <ProgressBar now={progress} max={8} min={0}></ProgressBar>
+        <ProgressBar now={progress} max={questions} min={0}></ProgressBar>
     );
 }
