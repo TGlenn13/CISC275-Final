@@ -57,7 +57,7 @@ export function DetailedPage(): React.JSX.Element {
   return (
     <div>
       <h1>Detailed Career Assessment</h1>
-      <QuizProgressBar questions={4} progress={progress}></QuizProgressBar>
+      <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
       <form onSubmit={handleSubmit}>
         {detailedQuestions.map((question) => (
         <div key={question.name}>
