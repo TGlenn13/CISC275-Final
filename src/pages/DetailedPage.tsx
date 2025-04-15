@@ -2,7 +2,6 @@ import React, { useState} from "react";
 import { Button } from "react-bootstrap";
 import { QuizProgressBar } from "../quiz-components/ProgressBar";
 import {detailedQuestions, Question} from '../quiz-components/DetailedQuestions';
-import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 
 export function DetailedPage(): React.JSX.Element {
   const [formData, setFormData] = useState({
@@ -64,9 +63,12 @@ export function DetailedPage(): React.JSX.Element {
           <label>{question.label}</label>
           <br></br>
 
-          <input type="text" name={question.name} value={formData[question.name as keyof typeof formData]}
-          onChange={(e) => handleChange(e, question)}/>
-
+          <textarea
+          name={question.name}
+          value={formData[question.name as keyof typeof formData]}
+          onChange={(e) => handleChange(e, question)}
+          style={{ width: '500px', height: '75px' }}
+          />
         </div>))}
         {}
         <Button type="submit">Submit</Button>
