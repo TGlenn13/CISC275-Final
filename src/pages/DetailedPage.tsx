@@ -2,12 +2,18 @@ import React, { useState} from "react";
 import { Button } from "react-bootstrap";
 import { QuizProgressBar } from "../quiz-components/ProgressBar";
 import {detailedQuestions, Question} from '../quiz-components/DetailedQuestions';
+import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 
 export function DetailedPage(): React.JSX.Element {
   const [formData, setFormData] = useState({
     strengths: '',
     interests: '',
     workEnvironment: '',
+    preferredTasks: '',
+    idealWork: '',
+    role: '',
+    skills: '',
+    values: ''
   });
   const [progress, setProgress] = useState<number>(0);
   //const [submitted, setSubmitted] = useState(false);
@@ -51,7 +57,7 @@ export function DetailedPage(): React.JSX.Element {
   return (
     <div>
       <h1>Detailed Career Assessment</h1>
-      <QuizProgressBar questions={3} progress={progress}></QuizProgressBar>
+      <QuizProgressBar questions={4} progress={progress}></QuizProgressBar>
       <form onSubmit={handleSubmit}>
         {detailedQuestions.map((question) => (
         <div key={question.name}>
@@ -62,6 +68,7 @@ export function DetailedPage(): React.JSX.Element {
           onChange={(e) => handleChange(e, question)}/>
 
         </div>))}
+        {}
         <Button type="submit">Submit</Button>
       </form>
     </div>
