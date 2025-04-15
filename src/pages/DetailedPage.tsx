@@ -71,7 +71,7 @@ export function DetailedPage(): React.JSX.Element {
           />
         </div>))}
         {}
-        <Button type="submit">Submit</Button>
+        <Button disabled={progress !== 8} type="submit">Submit</Button>
       </form>
     </div>
   );
