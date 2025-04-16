@@ -119,7 +119,7 @@ export function BasicPage(): React.JSX.Element{
     return(
     <div>
         <h1>Basic Career Assessment</h1>
-        <QuizProgressBar progress={progress}></QuizProgressBar>
+        <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
         <br></br>
         <div>
             <QuestionPage questionGroups={groupedQuestions}></QuestionPage>
