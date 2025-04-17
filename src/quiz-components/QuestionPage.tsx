@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap"
-import { MultipleChoiceQuestion } from "./MultipleChoiceQuestion";
 
-interface Question {
+export interface Question {
     question: string;
     options: string[];
     selectedAnswer: string;
     onAnswerChange: (answer: string) => void;
 }
 
-export function QuestionPage({questionGroups}: {questionGroups: Question[][]}): React.JSX.Element {
-    // questionGroups is a 2d array of questions, grouped into 4 for each page
+export function QuestionPage<Question>(
+        {questionGroups, renderQuestion}:
+        {
+            questionGroups: Question[][],
+            renderQuestion: (question: Question, index: number) => React.JSX.Element
+        }
+    ): React.JSX.Element {
+    /* questionGroups is a 2d array of questions, grouped into 4 for each page
+    renderQuestion is a function that knows how to render a particular question type, allowing this
+    component to be used for multiple question types*/
     const [pageNum, setPageNum] = useState<number>(0);
 
     const currentPage=questionGroups[pageNum];
@@ -18,12 +25,12 @@ export function QuestionPage({questionGroups}: {questionGroups: Question[][]}): 
     return (
         <div>
             <Row>
-                <Col><MultipleChoiceQuestion {...currentPage[0]}></MultipleChoiceQuestion></Col>
-                <Col><MultipleChoiceQuestion {...currentPage[1]}></MultipleChoiceQuestion></Col>
+                <Col>{renderQuestion(currentPage[0], 0)}</Col>
+                <Col>{renderQuestion(currentPage[1], 1)}</Col>
             </Row>
             <Row>
-                <Col><MultipleChoiceQuestion {...currentPage[2]}></MultipleChoiceQuestion></Col>
-                <Col><MultipleChoiceQuestion {...currentPage[3]}></MultipleChoiceQuestion></Col>
+                <Col>{renderQuestion(currentPage[2], 2)}</Col>
+                <Col>{renderQuestion(currentPage[3], 3)}</Col>
             </Row>
             <Button disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Prev</Button>
             <Button disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
