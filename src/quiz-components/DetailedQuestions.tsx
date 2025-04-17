@@ -1,10 +1,10 @@
-export type Question={
+export type DetailedQuestion={
     name:string;
     label:string
     completed:boolean;
 }
 
-export const detailedQuestions:Question[]=[
+export const detailedQuestions:DetailedQuestion[]=[
     {name:"strengths",label:"Describe a time when you solved a complex problem or overcame a challenge. What approach did you take, and what did you learn about your strengths?",completed:false},
     {name:"interests",label:"What are three topics or industries you find fascinating, even if you don’t have direct experience with them?",completed:false},
     {name:"workEnvironment",label:"When you imagine your ideal work environment, what does it look and feel like?",completed:false},
