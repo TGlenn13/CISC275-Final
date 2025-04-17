@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap"
 
 export interface Question {
+    name: string;
     question: string;
     options: string[];
     selectedAnswer: string;

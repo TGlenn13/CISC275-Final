@@ -24,6 +24,7 @@ export function BasicPage(): React.JSX.Element{
 
     const questions = [
         {
+            name: "activities",
             question: "1. Which activity sounds the most enjoyable to you?",
             options: [
                 "Solving puzzles or analyzing data",
@@ -34,6 +35,7 @@ export function BasicPage(): React.JSX.Element{
             ]
         },
         {
+            name: "decisions",
             question: "2. How do you typically make decisions?",
             options: [
                 "Based on logic, facts, and data",
@@ -44,6 +46,7 @@ export function BasicPage(): React.JSX.Element{
             ]
         },
         {
+            name: "work environment",
             question: "3. What type of environment do you prefer to work in?",
             options: [
                 "Quiet, focused, and independent",
@@ -54,6 +57,7 @@ export function BasicPage(): React.JSX.Element{
             ]
         },
         {
+            name: "tasks",
             question: "4. What kind of tasks do you find most satisfying?",
             options: [
                 "Researching, investigating, or experimenting",
@@ -64,6 +68,7 @@ export function BasicPage(): React.JSX.Element{
             ]
         },
         {
+            name: "school subject",
             question: "5. Which school subject did you (or do you) enjoy the most?",
             options: [
                 "Math or Science",
@@ -74,6 +79,7 @@ export function BasicPage(): React.JSX.Element{
             ]
         },
         {
+            name: "friends' description",
             question: "6. How would your friends describe you?",
             options: [
                 "Analytical and thoughtful",
@@ -84,6 +90,7 @@ export function BasicPage(): React.JSX.Element{
             ]
         },
         {
+            name: "motivation",
             question: "7. What motivates you most in a career?",
             options: [
                 "Solving complex problems and discovering new things",
@@ -94,6 +101,7 @@ export function BasicPage(): React.JSX.Element{
             ]
         },
         {
+            name: "value",
             question: "8. What do you value most in a job?",
             options: [
                 "Intellectual challenge",
