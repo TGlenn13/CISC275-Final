@@ -1,5 +1,5 @@
 import  React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import {QuizProgressBar} from "../quiz-components/ProgressBar";
 import {QuestionPage, Question} from "../quiz-components/QuestionPage";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
@@ -7,6 +7,7 @@ import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestio
 export function BasicPage(): React.JSX.Element{
     const [progress, setProgress] = useState<number>(0);
     const [answers, setAnswers] = useState<string[]>(Array(8).fill(""));
+    const [show, setShow] = useState(false);
 
     const renderQuestion = (question: Question, index: number) =>
     <MultipleChoiceQuestion key={index} {...question}></MultipleChoiceQuestion>
@@ -127,8 +128,19 @@ export function BasicPage(): React.JSX.Element{
         <br></br>
         <div>
             <QuestionPage renderQuestion={renderQuestion} questionGroups={groupedQuestions}></QuestionPage>
-            <Button disabled={progress!==8} onClick={() => console.log("submitted")}>Submit</Button>
+            <Button disabled={progress!==8} onClick={() => { setShow(true); console.log("submitted");}}>Submit</Button>
         </div>
+        <Modal show={show} onHide={() => setShow(false)}>
+      <Modal.Header closeButton>
+        <Modal.Title>Submission Successful</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>Your responses have been submitted!</Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={() => setShow(false)}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
     </div>
     );
 }
