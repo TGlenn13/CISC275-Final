@@ -1,11 +1,15 @@
 import  React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import {QuizProgressBar} from "../quiz-components/ProgressBar";
-import {QuestionPage} from "../quiz-components/QuestionPage";
+import {QuestionPage, Question} from "../quiz-components/QuestionPage";
+import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 
 export function BasicPage(): React.JSX.Element{
     const [progress, setProgress] = useState<number>(0);
     const [answers, setAnswers] = useState<string[]>(Array(8).fill(""));
+
+    const renderQuestion = (question: Question, index: number) =>
+    <MultipleChoiceQuestion key={index} {...question}></MultipleChoiceQuestion>
 
     const changeAnswer = (index: number, answer: string) => {
         // When an answer is selected in a multiple choice question, update state
@@ -122,7 +126,7 @@ export function BasicPage(): React.JSX.Element{
         <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
         <br></br>
         <div>
-            <QuestionPage questionGroups={groupedQuestions}></QuestionPage>
+            <QuestionPage renderQuestion={renderQuestion} questionGroups={groupedQuestions}></QuestionPage>
             <Button disabled={progress!==8} onClick={() => console.log("submitted")}>Submit</Button>
         </div>
     </div>
