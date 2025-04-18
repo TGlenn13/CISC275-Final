@@ -3,7 +3,6 @@ import { Row, Col, Button } from "react-bootstrap"
 
 export interface Question {
     question: string;
-    options: string[];
     selectedAnswer: string;
     onAnswerChange: (answer: string) => void;
 }
