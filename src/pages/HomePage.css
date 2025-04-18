@@ -8,14 +8,21 @@
     flex-direction: column;
 }
 
-.button-container p {
+.button-container{
     flex-grow: 1;
+    background-color: whitesmoke;
+    box-shadow: 0px 4px 6px black;
 }
 
 .button {
     width: 90%;
     margin-top: auto;
     margin: auto;
+    border: solid 2px black;
+}
+
+.button:hover{
+    border: solid 2px black;
 }
 
 .row-container {
@@ -32,4 +39,10 @@
 .api-input {
     width: 20%;
     margin: auto;
+}
+
+#header{
+    margin-top: auto;
+    color:black;
+    border: solid 1px white;
 }
