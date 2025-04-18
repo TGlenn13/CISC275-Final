@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { Button } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { QuizProgressBar } from "../quiz-components/ProgressBar";
 import {unformattedDetailedQuestions } from '../quiz-components/DetailedQuestions';
 import { Question } from "../quiz-components/QuestionPage";
@@ -32,6 +32,7 @@ export function DetailedPage(): React.JSX.Element {
     values: ''
   });
   const [progress, setProgress] = useState<number>(0);
+  const [show, setShow] = useState(false);
 
   // function written with assistance of chatGPT
   const handleChange = (name: keyof FormData, answer: string) => {
@@ -50,6 +51,7 @@ export function DetailedPage(): React.JSX.Element {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setShow(true);
     console.log('User Responses:', formData);
   };
 
@@ -89,6 +91,17 @@ export function DetailedPage(): React.JSX.Element {
         {}
         <Button disabled={progress < 8} type="submit">Submit</Button>
       </form>
+      <Modal show={show} onHide={() => setShow(false)}>
+      <Modal.Header closeButton>
+        <Modal.Title>Submission Successful</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>Your responses have been submitted!</Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={() => setShow(false)}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
     </div>
   );
 }
