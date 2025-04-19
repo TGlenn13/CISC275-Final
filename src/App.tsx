@@ -4,6 +4,7 @@ import {HomePage} from './pages/HomePage';
 import { BasicPage } from './pages/BasicPage';
 import { DetailedPage } from './pages/DetailedPage';
 import {Header} from "./elements/Header";
+import {Footer} from "./elements/Footer";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -33,6 +34,7 @@ function App() {
     return (<div>
       <Header changePage={changePage}></Header>
       <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>
+      <Footer/>
   </div>)
   }
    if (page === "basic") {
@@ -40,6 +42,7 @@ function App() {
     return(<div>
       <Header changePage={changePage}></Header>
        <BasicPage></BasicPage>
+       <Footer/>
        </div>
     )
   }  
@@ -47,6 +50,7 @@ function App() {
     return (<div>
       <Header changePage={changePage}></Header>
        <DetailedPage></DetailedPage>
+       <Footer/>
        </div>
     )
   }
