@@ -8,7 +8,7 @@ interface HeaderProps{
 
 export function Header({changePage}:HeaderProps): React.JSX.Element{
     return(
-        <div className="navbar">
+        <div id="navbar">
             <Button className="navbutton" onClick={()=>changePage("home")}>Home</Button>
             <Button className="navbutton" onClick={()=>changePage("basic")}>Basic Assessment</Button>
             <Button className="navbutton" onClick={()=>changePage("detailed")}>Detailed Assessment</Button>

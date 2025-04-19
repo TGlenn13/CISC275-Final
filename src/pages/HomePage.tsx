@@ -13,7 +13,7 @@ interface HomePageProps {
 export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: HomePageProps):React.JSX.Element {
   return (
     <div className="App">
-      <h1>Career Helpi</h1>
+      <h1 id="header">Career Helpi</h1>
       <div className="row-container">
       <Row>
         <Col>
@@ -36,15 +36,15 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
         </Col>
       </Row>
       </div>
-      <div className="footer">
-      <Form className="api-input">
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
-        <br />
-        <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
+      <div id="api-box">
+        <Form className="api-input">
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
+          <br />
+          <Button className="button" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
       </div>
     </div>
   );

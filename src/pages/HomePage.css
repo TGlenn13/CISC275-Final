@@ -1,23 +1,39 @@
 .button-container {
-    border: 1px solid black;
     width: 60%;
     height: 100%;
-    padding: 20px;
+    padding: 4%;
     margin: auto;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    background-color: whitesmoke;
+    box-shadow: 0px 2px 4px black;
+    align-items: center;
+    border:2px solid transparent;
 }
 
-.button-container p {
-    flex-grow: 1;
+.button-container:hover{
+    border-color: black;
 }
 
 .button {
     width: 90%;
+    color:black;
+    background-color: rgb(190, 201, 211);
+    border: solid 1px black;
+    border-radius:0px;
     margin-top: auto;
-    margin: auto;
 }
 
+.button:hover{
+    color:black;
+    background-color: rgb(221, 226, 231);
+    border: solid 1px black;
+    box-shadow: 0px 2px 3px black;
+}
+.row{
+    margin:0;
+}
 .row-container {
     padding-top: 5%;
     padding-bottom: 8%;
@@ -29,7 +45,37 @@
     width: 100%
 }
 
+#api-box{
+    margin:auto;
+    background-color: whitesmoke;
+    width:30%;
+    align:center;
+    padding:1%;
+    box-shadow: 0px 2px 4px black;
+    border:solid 2px transparent;
+}
+
+#api-box:hover{
+    border-color: BLACK;
+}
+
 .api-input {
-    width: 20%;
+    width: 90%;
     margin: auto;
+}
+
+.button:focus,
+.button:active,
+.button:focus:active {
+    background-color: aliceblue;
+    color: black;
+    outline: none;
+    box-shadow: none;
+    transition: none;
+}
+
+#header{
+    color:black;
+    font-size: 600%;
+    padding-top: 3%;
 }
