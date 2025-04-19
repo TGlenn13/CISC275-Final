@@ -36,14 +36,16 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
         </Col>
       </Row>
       </div>
-      <Form className="api-input">
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
-        <br />
-        <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
+      <div id="api-box">
+        <Form className="api-input">
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
+          <br />
+          <Button className="button" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 }
