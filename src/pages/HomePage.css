@@ -24,7 +24,9 @@
 .button:hover{
     border: solid 2px black;
 }
-
+.row{
+    margin:0;
+}
 .row-container {
     padding-top: 5%;
     padding-bottom: 8%;
@@ -42,6 +44,7 @@
 }
 
 #header{
-    margin-top: auto;
     color:black;
+    font-size: 60px;
+    padding-top: 80px;
 }
