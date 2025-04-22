@@ -144,7 +144,10 @@ export function BasicPage(): React.JSX.Element{
             question: question.question,
             response: answers[index],
         }))
-        console.log(responseArray);
+        const responseString: string = responseArray.map((response: QuestionResponse) => (
+            response.question + "\nAnswer: " + response.response 
+        )).join("\n\n")
+        console.log(responseString);
     }
 
     return(
