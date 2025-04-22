@@ -14,7 +14,6 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
   return (
     <div className="App">
       <h1 id="header">Career Helpi</h1>
-      <div className="row-container">
       <Row>
         <Col>
           <div className="button-container">
@@ -35,17 +34,18 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
           </div>
         </Col>
       </Row>
-      </div>
-      <div id="api-box">
-        <Form className="api-input">
-          <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
-          <br />
-          <Button className="button" onClick={handleSubmit}>
-            Submit
-          </Button>
-        </Form>
-      </div>
+      <Row>
+        <div className="button-container" id="api-box">
+          <Form>
+            <Form.Label>API Key:</Form.Label>
+            <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
+            <br />
+            <Button className="button" onClick={handleSubmit}>
+              Submit
+            </Button>
+          </Form>
+        </div>
+      </Row>
     </div>
   );
 }
