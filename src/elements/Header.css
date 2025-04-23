@@ -18,14 +18,14 @@
 
 .navbutton:hover {
     cursor: pointer;
-    background-color: aliceblue;
+    background-color: rgb(190, 201, 211);
     color:black;
 }
 
 .navbutton:focus,
 .navbutton:active,
 .navbutton:focus:active {
-    background-color: aliceblue;
+    background-color: rgb(190, 201, 211);
     color: black;
     outline: none;
     box-shadow: none;
