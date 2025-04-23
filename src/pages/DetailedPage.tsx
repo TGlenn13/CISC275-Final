@@ -6,6 +6,10 @@ import { Question } from "../quiz-components/QuestionPage";
 import { QuestionPage } from "../quiz-components/QuestionPage"
 import { QuestionResponse } from "./BasicPage";
 
+interface ResultsPage {
+  changePage: (pageName:"results") => void;
+}
+
 interface FormData {
   strengths: string;
   interests: string;
@@ -26,7 +30,7 @@ interface ShortAnswerQuestion extends Question {
   name: keyof FormData
 }
 
-export function DetailedPage(): React.JSX.Element {
+export function DetailedPage({changePage}: ResultsPage): React.JSX.Element {
   const [formData, setFormData] = useState<FormData>({
     strengths: '',
     interests: '',
@@ -113,8 +117,8 @@ export function DetailedPage(): React.JSX.Element {
       </Modal.Header>
       <Modal.Body>Your responses have been submitted!</Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={() => setShow(false)}>
-          Close
+        <Button variant="primary" onClick={() => changePage("results")}>
+          Show Results
         </Button>
       </Modal.Footer>
     </Modal>
