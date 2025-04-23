@@ -1,6 +1,5 @@
-.App {
-  text-align: center;
-  background-image:linear-gradient(rgb(190, 201, 211),whitesmoke);
-  height:90vh;
+.App{
+    display:flex;
+    flex-direction: column;
+    min-height:100vh;
 }
-

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './App.css';
 import {HomePage} from './pages/HomePage';
 import { BasicPage } from './pages/BasicPage';
 import { DetailedPage } from './pages/DetailedPage';
 import {Header} from "./elements/Header";
 import {Footer} from "./elements/Footer";
+import "./App.css"
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -31,7 +31,7 @@ function App() {
   }
   
   if (page === "home") {
-    return (<div>
+    return (<div className="App">
       <Header changePage={changePage}></Header>
       <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>
       <Footer/>
