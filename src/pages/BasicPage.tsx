@@ -4,8 +4,20 @@ import {QuizProgressBar} from "../quiz-components/ProgressBar";
 import {QuestionPage, Question} from "../quiz-components/QuestionPage";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 
+// Used to initialize questions with data before all Question fields are filled in
+interface InitialMultipleChoice {
+    question: string;
+    options: string[];
+}
+
 interface MultipleChoice extends Question {
     options: string[];
+}
+
+// Used to format question response pairs before sending over to OpenAI
+export interface QuestionResponse {
+    question: string;
+    response: string;
 }
 
 export function BasicPage(): React.JSX.Element{
@@ -27,7 +39,7 @@ export function BasicPage(): React.JSX.Element{
         setAnswers(updated);
     }
 
-    const questions = [
+    const questions: InitialMultipleChoice[] = [
         {
             question: "1. Which activity sounds the most enjoyable to you?",
             options: [
@@ -125,6 +137,22 @@ export function BasicPage(): React.JSX.Element{
     ];
     // end gpt
 
+    const handleSubmit = () => {
+        setShow(true);
+        console.log("submitted");
+        // Merge questions and user responses into array of QuestionResponses
+        const responseArray: QuestionResponse[] = questions.map(
+            (question: InitialMultipleChoice, index: number) => ({
+            question: question.question,
+            response: answers[index],
+        }))
+        // Map QuestionResponses to strings, then join those strings with newlines
+        const responseString: string = responseArray.map((response: QuestionResponse) => (
+            response.question + "\nAnswer: " + response.response 
+        )).join("\n\n")
+        console.log(responseString);
+    }
+
     return(
     <div>
         <h1>Basic Career Assessment</h1>
@@ -132,7 +160,7 @@ export function BasicPage(): React.JSX.Element{
         <br></br>
         <div>
             <QuestionPage renderQuestion={renderQuestion} questionGroups={groupedQuestions}></QuestionPage>
-            <Button disabled={progress!==8} onClick={() => { setShow(true); console.log("submitted");}}>Submit</Button>
+            <Button disabled={progress!==8} onClick={handleSubmit}>Submit</Button>
         </div>
         <Modal show={show} onHide={() => setShow(false)}>
       <Modal.Header closeButton>

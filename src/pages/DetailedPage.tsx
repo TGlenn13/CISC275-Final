@@ -4,8 +4,9 @@ import { QuizProgressBar } from "../quiz-components/ProgressBar";
 import {unformattedDetailedQuestions } from '../quiz-components/DetailedQuestions';
 import { Question } from "../quiz-components/QuestionPage";
 import { QuestionPage } from "../quiz-components/QuestionPage"
+import { QuestionResponse } from "./BasicPage";
 
-export interface FormData {
+interface FormData {
   strengths: string;
   interests: string;
   workEnvironment: string;
@@ -14,6 +15,11 @@ export interface FormData {
   role: string;
   skills: string;
   values: string;
+}
+
+export interface InitialShortAnswer {
+  name: keyof FormData,
+  question: string
 }
 
 interface ShortAnswerQuestion extends Question {
@@ -52,7 +58,17 @@ export function DetailedPage(): React.JSX.Element {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShow(true);
-    console.log('User Responses:', formData);
+    // Merge questions and user responses into array of QuestionResponses
+    const responseArray: QuestionResponse[] = unformattedDetailedQuestions.map(
+        (question: InitialShortAnswer) => ({
+        question: question.question,
+        response: formData[question.name],
+    }))
+    // Map QuestionResponses to strings, then join those strings with newlines
+    const responseString: string = responseArray.map((response: QuestionResponse) => (
+        response.question + "\nAnswer: " + response.response 
+    )).join("\n\n")
+    console.log(responseString);
   };
 
   const renderQuestion = (question: ShortAnswerQuestion) => 

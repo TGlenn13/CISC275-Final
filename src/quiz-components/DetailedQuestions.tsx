@@ -1,6 +1,6 @@
-import { FormData } from "../pages/DetailedPage";
+import { InitialShortAnswer } from "../pages/DetailedPage";
 
-export const unformattedDetailedQuestions: {name: keyof FormData, question: string}[]=[
+export const unformattedDetailedQuestions: InitialShortAnswer[]=[
     {
         name:"strengths",
         question:"1. Describe a time when you solved a complex problem or overcame a challenge. What approach did you take, and what did you learn about your strengths?"
