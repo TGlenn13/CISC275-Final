@@ -1,5 +1,4 @@
 import React from "react";
-import '../App.css';
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "./HomePage.css"
 
@@ -12,7 +11,7 @@ interface HomePageProps {
 
 export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: HomePageProps):React.JSX.Element {
   return (
-    <div className="App">
+    <div className="HomePage">
       <h1 id="header">Career Helpi</h1>
       <Row>
         <Col>
