@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import {HomePage} from './pages/HomePage';
 import { BasicPage } from './pages/BasicPage';
 import { DetailedPage } from './pages/DetailedPage';
@@ -32,7 +31,7 @@ function App() {
   }
   
   if (page === "home") {
-    return (<div>
+    return (<div className="App">
       <Header changePage={changePage}></Header>
       <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>
       <Footer/>

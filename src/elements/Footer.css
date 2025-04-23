@@ -1,6 +1,6 @@
 #footer{
     text-align: center;
-    margin-top: auto;
     background-color: whitesmoke;
-    height: 5vh;
+    height: auto;
+    width:100%;
 }
