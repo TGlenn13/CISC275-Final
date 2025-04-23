@@ -15,7 +15,7 @@ interface MultipleChoice extends Question {
 }
 
 // Used to format question response pairs before sending over to OpenAI
-interface QuestionResponse {
+export interface QuestionResponse {
     question: string;
     response: string;
 }
