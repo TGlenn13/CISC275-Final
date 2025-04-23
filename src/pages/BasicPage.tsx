@@ -3,6 +3,11 @@ import { Modal, Button } from "react-bootstrap";
 import {QuizProgressBar} from "../quiz-components/ProgressBar";
 import {QuestionPage, Question} from "../quiz-components/QuestionPage";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
+import '../App.css';
+
+interface ResultsPage {
+    changePage: (pageName:"results") => void;
+}
 
 // Used to initialize questions with data before all Question fields are filled in
 interface InitialMultipleChoice {
@@ -20,7 +25,7 @@ export interface QuestionResponse {
     response: string;
 }
 
-export function BasicPage(): React.JSX.Element{
+export function BasicPage({changePage}: ResultsPage): React.JSX.Element{
     const [progress, setProgress] = useState<number>(0);
     const [answers, setAnswers] = useState<string[]>(Array(8).fill(""));
     const [show, setShow] = useState(false);
@@ -168,8 +173,8 @@ export function BasicPage(): React.JSX.Element{
       </Modal.Header>
       <Modal.Body>Your responses have been submitted!</Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={() => setShow(false)}>
-          Close
+        <Button variant="primary" onClick={() => changePage("results")}>
+          Show Results
         </Button>
       </Modal.Footer>
     </Modal>
