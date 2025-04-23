@@ -14,6 +14,7 @@ interface MultipleChoice extends Question {
     options: string[];
 }
 
+// Used to format question response pairs before sending over to OpenAI
 interface QuestionResponse {
     question: string;
     response: string;
@@ -139,11 +140,13 @@ export function BasicPage(): React.JSX.Element{
     const handleSubmit = () => {
         setShow(true);
         console.log("submitted");
+        // Merge questions and user responses into array of QuestionResponses
         const responseArray: QuestionResponse[] = questions.map(
             (question: InitialMultipleChoice, index: number) => ({
             question: question.question,
             response: answers[index],
         }))
+        // Map QuestionResponses to strings, then join those strings with newlines
         const responseString: string = responseArray.map((response: QuestionResponse) => (
             response.question + "\nAnswer: " + response.response 
         )).join("\n\n")
