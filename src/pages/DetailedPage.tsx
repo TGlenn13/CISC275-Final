@@ -6,10 +6,6 @@ import { Question } from "../quiz-components/QuestionPage";
 import { QuestionPage } from "../quiz-components/QuestionPage"
 import { QuestionResponse } from "./BasicPage";
 
-interface ResultsPage {
-  changePage: (pageName:"results") => void;
-}
-
 interface FormData {
   strengths: string;
   interests: string;
@@ -30,7 +26,8 @@ interface ShortAnswerQuestion extends Question {
   name: keyof FormData
 }
 
-export function DetailedPage({changePage}: ResultsPage): React.JSX.Element {
+export function DetailedPage({changePage, setQuizResponses}:
+  {changePage: (pageName:"results") => void, setQuizResponses: (responses: string) => void}): React.JSX.Element {
   const [formData, setFormData] = useState<FormData>({
     strengths: '',
     interests: '',
@@ -72,7 +69,7 @@ export function DetailedPage({changePage}: ResultsPage): React.JSX.Element {
     const responseString: string = responseArray.map((response: QuestionResponse) => (
         response.question + "\nAnswer: " + response.response 
     )).join("\n\n")
-    console.log(responseString);
+    setQuizResponses(responseString);
   };
 
   const renderQuestion = (question: ShortAnswerQuestion) => 
