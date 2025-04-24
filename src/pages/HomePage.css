@@ -6,6 +6,7 @@
 }
 
 .button-container {
+    border-radius: 6px;
     width: 80%;
     height: 80%;
     margin: 2rem auto;

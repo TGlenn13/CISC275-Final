@@ -8,7 +8,9 @@
 }
 
 .navbutton {
-    border-radius: 0;
+    border-radius: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     border: none;
     height:100%;
     font-size:100%;
