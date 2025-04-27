@@ -15,6 +15,7 @@ if (prevKey !== null) {
 }
 
 function App() {
+  const [quizResponses, setQuizResponses] = useState<string>("");
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [page, setPage] = useState<string>("home"); //routes user to the right page, defaulting to home page
   //sets the local storage item to the api key the user inputed
@@ -41,7 +42,7 @@ function App() {
     
     return(<div>
       <Header changePage={changePage}></Header>
-       <BasicPage changePage={changePage}></BasicPage>
+       <BasicPage changePage={changePage} setQuizResponses={setQuizResponses}></BasicPage>
        <Footer/>
        </div>
     )
@@ -49,7 +50,7 @@ function App() {
   if (page === "detailed") {
     return (<div>
       <Header changePage={changePage}></Header>
-       <DetailedPage changePage={changePage}></DetailedPage>
+       <DetailedPage changePage={changePage} setQuizResponses={setQuizResponses}></DetailedPage>
        <Footer/>
        </div>
     )
@@ -57,7 +58,7 @@ function App() {
   if (page === "results") {
     return (<div>
       <Header changePage={changePage}></Header>
-       <ResultsPage></ResultsPage>
+       <ResultsPage quizResponses={quizResponses}></ResultsPage>
        <Footer/>
        </div>
     )

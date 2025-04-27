@@ -5,10 +5,6 @@ import {QuestionPage, Question} from "../quiz-components/QuestionPage";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 import '../App.css';
 
-interface ResultsPage {
-    changePage: (pageName:"results") => void;
-}
-
 // Used to initialize questions with data before all Question fields are filled in
 interface InitialMultipleChoice {
     question: string;
@@ -25,7 +21,8 @@ export interface QuestionResponse {
     response: string;
 }
 
-export function BasicPage({changePage}: ResultsPage): React.JSX.Element{
+export function BasicPage({changePage, setQuizResponses}:
+    {changePage: (pageName:"results") => void, setQuizResponses: (responses: string) => void}): React.JSX.Element{
     const [progress, setProgress] = useState<number>(0);
     const [answers, setAnswers] = useState<string[]>(Array(8).fill(""));
     const [show, setShow] = useState(false);
@@ -155,7 +152,7 @@ export function BasicPage({changePage}: ResultsPage): React.JSX.Element{
         const responseString: string = responseArray.map((response: QuestionResponse) => (
             response.question + "\nAnswer: " + response.response 
         )).join("\n\n")
-        console.log(responseString);
+        setQuizResponses(responseString);
     }
 
     return(
