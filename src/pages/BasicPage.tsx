@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import {QuizProgressBar} from "../quiz-components/ProgressBar";
 import {QuestionPage, Question} from "../quiz-components/QuestionPage";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
-import '../App.css';
+import './BasicPage.css';
 
 interface ResultsPage {
     changePage: (pageName:"results") => void;
@@ -159,8 +159,8 @@ export function BasicPage({changePage}: ResultsPage): React.JSX.Element{
     }
 
     return(
-    <div>
-        <h1>Basic Career Assessment</h1>
+    <div className="BasicPage">
+        <h1 id='hdr'>Basic Career Assessment</h1>
         <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
         <br></br>
         <div>
