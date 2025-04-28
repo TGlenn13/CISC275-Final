@@ -33,12 +33,14 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                     {
                         role: "user",
                         content: `Generate a concise, structured report of recommended careers based on the following questionnaire responses. For each section, list no less than 3 items and no more than 5 items.
-                    Provide output in this exact JSON format and breifly explain why the user has should choose these careers:
+                    Provide output in this exact JSON format and breifly explain why the user has choose these careers:
                     {
                         "summary": "Brief overview of user's career profile.",
-                        "recommendedCareers": ["Career 1 and why", "Career 2 and why", "Career 3 and why"],
-                        "strengths": ["Strength 1", "Strength 2"],
-                        "areasForImprovement": ["Improvement 1", "Improvement 2"]
+                        "recommendedCareers": ["Career 1 - and a paragraph describing the job and why the user would fit into it", 
+                        "Career 2 - and a paragraph describing the job and why the user would fit into it", 
+                        "Career 3 - and a paragraph describing the job and why the user would fit into it"],
+                        "strengths": ["Strength 1 - and how you decided this", "Strength 2 - and how you decided this"],
+                        "areasForImprovement": ["Improvement 1 - and how you decided this", "Improvement 2 - and how you decided this"]
                     }
                     Responses:\n${quizResults}`,
                     },
@@ -50,40 +52,52 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
     }
     return (
     <div>
-        <h1 className="text-2xl font-semibold mb-4">Career Assessment Results</h1>
+        <h1 className="text-4xl font-semibold mb-4">Career Assessment Results</h1>
         <button onClick={async () => await prompt(quizResponses)}>prompt</button>
 
         {loading ? (
-            <p className="text-gray-500">Loading...</p>
-        ) : (
-            result.summary && (
-                <div>
-                    <h2 className="text-xl font-semibold mb-2">Summary</h2>
-                    <p className="mb-4">{result.summary}</p>
+            <p style={{ color: "#6B7280", fontSize: "18px" }}>
+            Loading...
+        </p>
+    ) : (
+        result.summary && (
+            <div style={{ fontSize: "18px" }}>
+                <h2 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "1rem" }}>
+                    Summary
+                </h2>
+                <p style={{ fontSize: "20px", marginBottom: "1.5rem" }}>
+                    {result.summary}
+                </p>
 
-                    <h3 className="text-lg font-semibold">Recommended Careers</h3>
-                    <ul className="list-disc ml-5 mb-4">
-                        {result.recommendedCareers?.map((career, idx) => (
-                            <li key={idx}>{career}</li>
-                        ))}
-                    </ul>
+                <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                    Recommended Careers
+                </h3>
+                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
+                    {result.recommendedCareers?.map((career, idx) => (
+                        <li key={idx}>{career}</li>
+                    ))}
+                </ul>
 
-                    <h3 className="text-lg font-semibold">Strengths</h3>
-                    <ul className="list-disc ml-5 mb-4">
-                        {result.strengths?.map((strength, idx) => (
-                            <li key={idx}>{strength}</li>
-                        ))}
-                    </ul>
+                <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                    Strengths
+                </h3>
+                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
+                    {result.strengths?.map((strength, idx) => (
+                        <li key={idx}>{strength}</li>
+                    ))}
+                </ul>
 
-                    <h3 className="text-lg font-semibold">Areas for Improvement</h3>
-                    <ul className="list-disc ml-5">
-                        {result.areasForImprovement?.map((area, idx) => (
-                            <li key={idx}>{area}</li>
-                        ))}
-                    </ul>
-                </div>
-            )
-        )}
-    </div>
+                <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                    Areas for Improvement
+                </h3>
+                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+                    {result.areasForImprovement?.map((area, idx) => (
+                        <li key={idx}>{area}</li>
+                    ))}
+                </ul>
+            </div>
+        )
+    )}
+</div>
     )
 }
