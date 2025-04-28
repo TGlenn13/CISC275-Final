@@ -17,23 +17,34 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
     }, []);
 
     async function prompt(client: OpenAI, quizResults: string) {
-        if (!client) throw new Error("API key invalid");
         console.log("prompting");
         
         setLoading(true);
-        const completion: ChatCompletion =
-            await client.chat.completions.create({
-                model: "gpt-4.1-nano",
-                messages: [
-                    {
-                        role: "user",
-                        content: "Generate a report of recommended careers based on my answers to the following questiomnaire:\n" + quizResults,
-                    },
-                ],
-            });
-        const response: string | null = completion.choices[0].message.content;
-        setLoading(false);
-        setResult(response ? response : "");
+        try {
+            const completion: ChatCompletion =
+                await client.chat.completions.create({
+                    model: "gpt-4.1-nano",
+                    messages: [
+                        {
+                            role: "user",
+                            content: "Generate a report of recommended careers based on my answers to the following questiomnaire:\n" + quizResults,
+                        },
+                    ],
+                });
+            const response: string | null = completion.choices[0].message.content;
+            setResult(response ? response : "");
+        }
+        catch (error) {
+            console.error(error);
+            if (error instanceof OpenAI.APIError && error.status === 401) {
+                setResult("Invalid API key, please enter a valid one.");
+            } else {
+                setResult("Failed to Generate Career Report");
+            }
+        }
+        finally {
+            setLoading(false);
+        }
     }
 
     return (
