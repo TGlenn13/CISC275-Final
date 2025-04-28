@@ -3,21 +3,22 @@ import OpenAI from "openai";
 import type { ChatCompletion } from "openai/resources/chat/completions";
 
 export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX.Element {
-    const [client, setClient] = useState<OpenAI | null>(null);
+    //const [client, setClient] = useState<OpenAI | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [result, setResult] = useState<string>("");
 
     // Run once on mount
-    useEffect(() => {updateKey();}, []);
-
-    function updateKey() {
+    useEffect(() => {
         const key = JSON.parse(localStorage.getItem("MYKEY") || "");
-        if (key) setClient(new OpenAI({apiKey: key ?? undefined, dangerouslyAllowBrowser: true}));
-    }
+        if (key) {
+            const client = new OpenAI({apiKey: key ?? undefined, dangerouslyAllowBrowser: true});
+            prompt(client, quizResponses);
+        }
+    }, []);
 
-    async function prompt(quizResults: string) {
+    async function prompt(client: OpenAI, quizResults: string) {
         if (!client) throw new Error("API key invalid");
-        console.log(client.apiKey);
+        console.log("prompting");
         
         setLoading(true);
         const completion: ChatCompletion =
@@ -38,7 +39,6 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
     return (
     <div>
         <h1>Results</h1>
-        <button onClick={async () => console.log(await prompt(quizResponses))}>prompt</button>
         {loading ? "loading" : result}
     </div>
     )
