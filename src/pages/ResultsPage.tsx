@@ -65,7 +65,7 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                 <h2 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "1rem" }}>
                     Summary
                 </h2>
-                <p style={{ fontSize: "20px", marginBottom: "1.5rem" }}>
+                <p style={{ fontSize: "18px", marginBottom: "1.5rem" }}>
                     {result.summary}
                 </p>
 
