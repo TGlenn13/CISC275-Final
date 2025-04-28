@@ -69,7 +69,7 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                     {result.summary}
                 </p>
 
-                <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
                     Recommended Careers
                 </h3>
                 <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
@@ -78,7 +78,7 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                     ))}
                 </ul>
 
-                <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
                     Strengths
                 </h3>
                 <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
@@ -87,7 +87,7 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                     ))}
                 </ul>
 
-                <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
                     Areas for Improvement
                 </h3>
                 <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
