@@ -33,7 +33,7 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                     {
                         role: "user",
                         content: `Generate a concise, structured report of recommended careers based on the following questionnaire responses. For each section, list no less than 3 items and no more than 5 items.
-                    Provide output in this exact JSON format and breifly explain why the user has choose these careers:
+                    Provide output in this exact JSON format and breifly explain with atleast 3 sentences why the user should choose these careers:
                     {
                         "summary": "Brief overview of user's career profile.",
                         "recommendedCareers": ["Career 1 - and a paragraph describing the job and why the user would fit into it", 
@@ -56,7 +56,7 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
         <button onClick={async () => await prompt(quizResponses)}>prompt</button>
 
         {loading ? (
-            <p style={{ color: "#6B7280", fontSize: "18px" }}>
+            <p style={{ fontSize: "18px" }}>
             Loading...
         </p>
     ) : (
