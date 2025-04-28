@@ -33,10 +33,10 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                     {
                         role: "user",
                         content: `Generate a concise, structured report of recommended careers based on the following questionnaire responses. For each section, list no less than 3 items and no more than 5 items.
-                    Provide output in this exact JSON format:
+                    Provide output in this exact JSON format and breifly explain why the user has should choose these careers:
                     {
                         "summary": "Brief overview of user's career profile.",
-                        "recommendedCareers": ["Career 1", "Career 2", "Career 3"],
+                        "recommendedCareers": ["Career 1 and why", "Career 2 and why", "Career 3 and why"],
                         "strengths": ["Strength 1", "Strength 2"],
                         "areasForImprovement": ["Improvement 1", "Improvement 2"]
                     }
