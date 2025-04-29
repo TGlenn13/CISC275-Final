@@ -32,8 +32,14 @@ export function QuestionPage<Question>(
                 <Col className="qbox">{renderQuestion(currentPage[2], 2)}</Col>
                 <Col className="qbox">{renderQuestion(currentPage[3], 3)}</Col>
             </Row>
-            <Button disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Prev</Button>
-            <Button disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
+            <Row>
+                <Col>
+            <Button  className="button" disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Back</Button>
+            </Col>
+            <Col>
+            <Button className="button" disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
+            </Col>
+            </Row>
         </div>
     );
 }
