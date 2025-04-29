@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap"
+import "./QuestionPage.css"
 
 export interface Question {
     question: string;
@@ -23,21 +24,13 @@ export function QuestionPage<Question>(
 
     return (
         <div>
-            <Row>
-                <div className="qbox">
-                <Col>{renderQuestion(currentPage[0], 0)}</Col>
-                </div>
-                <div className="qbox">
-                <Col>{renderQuestion(currentPage[1], 1)}</Col>
-                </div>
+            <Row className="qrow">
+                <Col className="qbox">{renderQuestion(currentPage[0], 0)}</Col>
+                <Col className="qbox">{renderQuestion(currentPage[1], 1)}</Col>
             </Row>
-            <Row>
-                <div className="qbox">
-                <Col>{renderQuestion(currentPage[2], 2)}</Col>
-                </div>
-                <div className="qbox">
-                <Col>{renderQuestion(currentPage[3], 3)}</Col>
-                </div>
+            <Row className="qrow">
+                <Col className="qbox">{renderQuestion(currentPage[2], 2)}</Col>
+                <Col className="qbox">{renderQuestion(currentPage[3], 3)}</Col>
             </Row>
             <Button disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Prev</Button>
             <Button disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>

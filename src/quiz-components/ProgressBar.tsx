@@ -1,5 +1,4 @@
 import { ProgressBar } from "react-bootstrap"
-import "./ProgressBar.css"
 interface ProgressBarProps{
     questions:number;
     progress:number;
