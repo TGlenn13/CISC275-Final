@@ -5,6 +5,7 @@ import {unformattedDetailedQuestions } from '../quiz-components/DetailedQuestion
 import { Question } from "../quiz-components/QuestionPage";
 import { QuestionPage } from "../quiz-components/QuestionPage"
 import { QuestionResponse } from "./BasicPage";
+import "./DetailedPage.css"
 
 interface FormData {
   strengths: string;
@@ -73,7 +74,7 @@ export function DetailedPage({changePage, setQuizResponses}:
   };
 
   const renderQuestion = (question: ShortAnswerQuestion) => 
-    <div key={question.name}>
+    <div id=""key={question.name}>
       <label>{question.question}</label>
       <br></br>
 
@@ -99,8 +100,8 @@ export function DetailedPage({changePage, setQuizResponses}:
 
 
   return (
-    <div>
-      <h1>Detailed Career Assessment</h1>
+    <div className="DetailedPage">
+      <h1 className="hdr">Detailed Career Assessment</h1>
       <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
       <form onSubmit={handleSubmit}>
         <QuestionPage questionGroups={detailedQuestions} renderQuestion={renderQuestion}></QuestionPage>

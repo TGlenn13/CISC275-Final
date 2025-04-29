@@ -49,7 +49,7 @@ function App() {
     )
   }  
   if (page === "detailed") {
-    return (<div>
+    return (<div className="App">
       <Header changePage={changePage}></Header>
        <DetailedPage changePage={changePage} setQuizResponses={setQuizResponses}></DetailedPage>
        <Footer/>
