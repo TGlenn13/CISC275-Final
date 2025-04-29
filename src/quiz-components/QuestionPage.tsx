@@ -25,19 +25,19 @@ export function QuestionPage<Question>(
     return (
         <div>
             <Row className="qrow">
-                <Col className="qbox">{renderQuestion(currentPage[0], 0)}</Col>
-                <Col className="qbox">{renderQuestion(currentPage[1], 1)}</Col>
+                <Col >{renderQuestion(currentPage[0], 0)}</Col>
+                <Col>{renderQuestion(currentPage[1], 1)}</Col>
             </Row>
             <Row className="qrow">
-                <Col className="qbox">{renderQuestion(currentPage[2], 2)}</Col>
-                <Col className="qbox">{renderQuestion(currentPage[3], 3)}</Col>
+                <Col>{renderQuestion(currentPage[2], 2)}</Col>
+                <Col >{renderQuestion(currentPage[3], 3)}</Col>
             </Row>
             <Row>
-                <Col>
-            <Button  className="button" disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Back</Button>
+            <Col>
+            <Button  className="button" id="back" disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Back</Button>
             </Col>
             <Col>
-            <Button className="button" disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
+            <Button className="button" id="next" disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
             </Col>
             </Row>
         </div>

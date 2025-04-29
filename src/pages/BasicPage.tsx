@@ -165,7 +165,7 @@ export function BasicPage({changePage}: ResultsPage): React.JSX.Element{
         <br></br>
         <div>
             <QuestionPage renderQuestion={renderQuestion} questionGroups={groupedQuestions}></QuestionPage>
-            <Button disabled={progress!==8} onClick={handleSubmit}>Submit</Button>
+            <Button id="submit" disabled={progress!==8} onClick={handleSubmit}>Submit</Button>
         </div>
         <Modal show={show} onHide={() => setShow(false)}>
       <Modal.Header closeButton>

@@ -84,7 +84,6 @@ export function DetailedPage({changePage}: ResultsPage): React.JSX.Element {
       name={question.name}
       value={formData[question.name as keyof typeof formData]}
       onChange={(e) => handleChange(question.name, e.target.value)}
-      style={{ width: '500px', height: '75px' }}
       />
     </div>
 

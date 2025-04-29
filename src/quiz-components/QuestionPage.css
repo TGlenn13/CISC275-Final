@@ -1,26 +1,10 @@
-.qbox{
-    background-color: whitesmoke;
-    border:solid black;
-    border-radius:6px;
-    padding:10px;
-    padding-left:20px;
-    margin:auto;
-    justify-content: left;
-    display:flex;
-    box-sizing:border-box;
-    max-width:500px;
-    min-width: fit-content;
-    max-height:200px;
-    min-height: auto;
-}
-
 .qrow{
     padding:10px;
 }
 
 .button{
     margin:auto;
-    width: 60%;
+    width:200px;
     color:black;
     background-color: rgb(190, 201, 211);
     border: solid 1px black;
@@ -28,6 +12,7 @@
     display:flex;
     justify-content: center;
 }
+
 .button:disabled{
     color:gray;
     background-color: aliceblue;
@@ -43,4 +28,14 @@
     box-shadow: none;
     transition: none;
     border: solid 1px black;
+}
+
+#next{
+    position:relative;
+    left:-155px;
+}
+
+#back{
+    position: relative;
+    right:-155px;
 }
