@@ -2,7 +2,7 @@
     padding:10px;
 }
 
-.button{
+.qbutton{
     margin:auto;
     width:200px;
     color:black;
@@ -13,16 +13,16 @@
     justify-content: center;
 }
 
-.button:disabled{
+.qbutton:disabled{
     color:gray;
     background-color: aliceblue;
     border: solid 1px black;
 
 }
 
-.button:focus,
-.button:active,
-.button:focus:active {
+.qbutton:focus,
+.qbutton:active,
+.qbutton:focus:active {
     background-color: aliceblue;
     color: black;
     box-shadow: none;

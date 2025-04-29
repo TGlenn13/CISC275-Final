@@ -34,10 +34,10 @@ export function QuestionPage<Question>(
             </Row>
             <Row>
             <Col>
-            <Button  className="button" id="back" disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Back</Button>
+            <Button  className="qbutton" id="back" disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Back</Button>
             </Col>
             <Col>
-            <Button className="button" id="next" disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
+            <Button className="qbutton" id="next" disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
             </Col>
             </Row>
         </div>
