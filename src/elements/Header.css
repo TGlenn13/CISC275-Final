@@ -21,14 +21,14 @@
 
 .navbutton:hover {
     cursor: pointer;
-    background-color: rgb(190, 201, 211);
+    background-color: rgb(126, 174, 213);
     color:black;
 }
 
 .navbutton:focus,
 .navbutton:active,
 .navbutton:focus:active {
-    background-color: rgb(190, 201, 211);
+    background-color: rgb(126, 174, 213);
     color: black;
     outline: none;
     box-shadow: none;

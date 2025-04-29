@@ -1,0 +1,15 @@
+.qbox{
+    background-color: whitesmoke;
+    border:solid black;
+    border-radius:6px;
+    padding:10px;
+    padding-left:20px;
+    margin:auto;
+    justify-content: left;
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+    box-sizing:border-box;
+    max-width:500px;
+    height: 100%;
+}

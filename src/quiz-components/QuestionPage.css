@@ -1,0 +1,41 @@
+.qrow{
+    padding:10px;
+}
+
+.qbutton{
+    margin:auto;
+    width:200px;
+    color:black;
+    background-color: rgb(190, 201, 211);
+    border: solid 1px black;
+    border-radius:0px;
+    display:flex;
+    justify-content: center;
+}
+
+.qbutton:disabled{
+    color:gray;
+    background-color: aliceblue;
+    border: solid 1px black;
+
+}
+
+.qbutton:focus,
+.qbutton:active,
+.qbutton:focus:active {
+    background-color: aliceblue;
+    color: black;
+    box-shadow: none;
+    transition: none;
+    border: solid 1px black;
+}
+
+#next{
+    position:relative;
+    left:-155px;
+}
+
+#back{
+    position: relative;
+    right:-155px;
+}

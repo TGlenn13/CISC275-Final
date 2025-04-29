@@ -1,0 +1,46 @@
+.BasicPage{
+    background-color:rgb(126, 174, 213);
+    height:auto;
+    flex:1;
+}
+
+#hdr{
+    text-align:center;
+}
+
+#submit{
+    margin:auto;
+    margin-top:80px;
+    width: 200px;
+    color:black;
+    background-color: rgb(190, 201, 211);
+    border: solid 1px black;
+    border-radius:0px;
+    display:flex;
+    justify-content: center;
+    position: relative;
+}
+
+#submit:hover{
+    color:black;
+    background-color: rgb(221, 226, 231);
+    border: solid 1px black;
+    box-shadow: 0px 2px 3px black;
+}
+
+#submit:disabled{
+    color:gray;
+    background-color: aliceblue;
+    border: solid 1px black;
+
+}
+
+#submit:focus,
+#submit:active,
+#submit:focus:active {
+    background-color: aliceblue;
+    color: black;
+    box-shadow: none;
+    transition: none;
+    border: solid 1px black;
+}

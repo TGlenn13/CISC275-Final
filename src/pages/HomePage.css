@@ -1,6 +1,6 @@
 .HomePage{
     text-align: center;
-    background-image:linear-gradient(rgb(190, 201, 211),whitesmoke);
+    background-color:rgb(126, 174, 213);
     height:auto;
     flex:1;
 }
