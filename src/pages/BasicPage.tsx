@@ -162,7 +162,7 @@ export function BasicPage({changePage, setQuizResponses}:
         <br></br>
         <div>
             <QuestionPage renderQuestion={renderQuestion} questionGroups={groupedQuestions}></QuestionPage>
-            <Button id="submit" disabled={progress!==8} onClick={handleSubmit}>Submit</Button>
+            <Button className="submit" disabled={progress!==8} onClick={handleSubmit}>Submit</Button>
         </div>
         <Modal show={show} onHide={() => setShow(false)}>
       <Modal.Header closeButton>

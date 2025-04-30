@@ -74,7 +74,7 @@ export function DetailedPage({changePage, setQuizResponses}:
   };
 
   const renderQuestion = (question: ShortAnswerQuestion) => 
-    <div id=""key={question.name}>
+    <div id="detailedbox" key={question.name}>
       <label>{question.question}</label>
       <br></br>
 
@@ -106,7 +106,7 @@ export function DetailedPage({changePage, setQuizResponses}:
       <form onSubmit={handleSubmit}>
         <QuestionPage questionGroups={detailedQuestions} renderQuestion={renderQuestion}></QuestionPage>
         {}
-        <Button disabled={progress < 8} type="submit">Submit</Button>
+        <Button className="submit" disabled={progress < 8} type="submit">Submit</Button>
       </form>
       <Modal show={show} onHide={() => setShow(false)}>
       <Modal.Header closeButton>

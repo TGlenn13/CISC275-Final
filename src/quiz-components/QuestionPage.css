@@ -30,6 +30,14 @@
     border: solid 1px black;
 }
 
+.qbutton:hover{
+    color:black;
+    background-color: rgb(221, 226, 231);
+    border: solid 1px black;
+    box-shadow: 0px 2px 3px black;
+}
+
+
 #next{
     position:relative;
     left:-155px;

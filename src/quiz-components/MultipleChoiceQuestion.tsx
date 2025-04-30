@@ -8,7 +8,7 @@ export function MultipleChoiceQuestion({question, options, selectedAnswer, onAns
 
 
     return (
-        <div className="mcqbox">
+        <div id="mcqbox">
             {question}
             {options.map((option: string): React.JSX.Element => {
                 return <Form.Check
