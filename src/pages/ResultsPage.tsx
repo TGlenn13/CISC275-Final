@@ -32,18 +32,18 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                 messages: [
                     {
                         role: "user",
-                        content: `Generate a concise, structured report of recommended careers based on the following questionnaire responses. For each section, list no less than 3 items and no more than 5 items.
-                    Provide output in this exact JSON format and breifly explain with atleast 3 sentences why the user should choose these careers:
+                        content: `Generate a concise, structured report of recommended careers based on the following questionnaire responses. For each section, 
+                        list no less than 3 items and no more than 5 items. For each career chosen, write a paragraph describing how the user would fit the job and what kind of work this jon entails.
+                    Please return a valid JSON object, formatted for machine parsing. Use one line per field, and escape all necessary characters.:
                     {
                         "summary": "Brief overview of user's career profile.",
-                        "recommendedCareers": ["Career 1 - and a paragraph describing the job and why the user would fit into it", 
-                        "Career 2 - and a paragraph describing the job and why the user would fit into it", 
-                        "Career 3 - and a paragraph describing the job and why the user would fit into it"],
+                        "recommendedCareers": ["Career 1 + paragraph", "Career 2 + paragraph,", "Career 3 + paragraph"],
                         "strengths": ["Strength 1 - and how you decided this", "Strength 2 - and how you decided this"],
-                        "areasForImprovement": ["Improvement 1 - and how you decided this", "Improvement 2 - and how you decided this"]
+                        "areasForImprovement": ["Improvement 1 - and how this would benefit the user in their specified careers", "Improvement 2 - and how this would benefit the user in their specified careers"]
                     }
-                    Responses:\n${quizResults}`,
-                    },
+                     ${quizResults}
+                    `.trim()
+                    }
                 ],
             });
             const response = completion.choices[0].message.content;
