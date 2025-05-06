@@ -22,7 +22,7 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
             const client = new OpenAI({apiKey: key ?? undefined, dangerouslyAllowBrowser: true});
             prompt(client, quizResponses);
         }
-    }, []);
+    }, [quizResponses]);
 
     async function prompt(client: OpenAI, quizResults: string) {
         console.log("prompting");
