@@ -1,0 +1,20 @@
+.DetailedPage{
+    background-color:rgb(126, 174, 213);
+    height:auto;
+    flex:1;
+}
+
+#detailedbox{
+    background-color: whitesmoke;
+    border:solid black;
+    border-radius:6px;
+    padding:20px;
+    margin:auto;
+    justify-content: left;
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+    box-sizing:border-box;
+    max-width:500px;
+    height: 100%;
+}

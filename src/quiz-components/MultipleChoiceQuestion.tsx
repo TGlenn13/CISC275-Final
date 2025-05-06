@@ -1,4 +1,5 @@
 import { Form } from "react-bootstrap"
+import "./MultipleChoiceQuestion.css"
 
 export function MultipleChoiceQuestion({question, options, selectedAnswer, onAnswerChange}: 
     {
@@ -7,7 +8,7 @@ export function MultipleChoiceQuestion({question, options, selectedAnswer, onAns
 
 
     return (
-        <div>
+        <div id="mcqbox">
             {question}
             {options.map((option: string): React.JSX.Element => {
                 return <Form.Check

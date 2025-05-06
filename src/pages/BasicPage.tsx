@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import {QuizProgressBar} from "../quiz-components/ProgressBar";
 import {QuestionPage, Question} from "../quiz-components/QuestionPage";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
-import '../App.css';
+import './BasicPage.css';
 
 // Used to initialize questions with data before all Question fields are filled in
 interface InitialMultipleChoice {
@@ -156,13 +156,13 @@ export function BasicPage({changePage, setQuizResponses}:
     }
 
     return(
-    <div>
-        <h1>Basic Career Assessment</h1>
+    <div className="BasicPage">
+        <h1 className='hdr'>Basic Career Assessment</h1>
         <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
         <br></br>
         <div>
             <QuestionPage renderQuestion={renderQuestion} questionGroups={groupedQuestions}></QuestionPage>
-            <Button disabled={progress!==8} onClick={handleSubmit}>Submit</Button>
+            <Button className="submit" disabled={progress!==8} onClick={handleSubmit}>Submit</Button>
         </div>
         <Modal show={show} onHide={() => setShow(false)}>
       <Modal.Header closeButton>
