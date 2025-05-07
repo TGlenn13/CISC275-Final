@@ -22,7 +22,7 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
             const client = new OpenAI({apiKey: key ?? undefined, dangerouslyAllowBrowser: true});
             prompt(client, quizResponses);
         }
-    }, []);
+    }, [quizResponses]);
 
     async function prompt(client: OpenAI, quizResults: string) {
         console.log("prompting");
@@ -36,14 +36,13 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                         {
                             role: "user",
                             content: `Generate a concise, structured report of recommended careers based on the following questionnaire responses. For each section, list no less than 3 items and no more than 5 items.
+                        For each career, write a paragraph detailing what the user can excpect if they were to choose this job, the average salary, and how the user would fit well into the job.    
                         Provide output in this exact JSON format and breifly explain with atleast 3 sentences why the user should choose these careers:
                         {
                             "summary": "Brief overview of user's career profile.",
-                            "recommendedCareers": ["Career 1 - and a paragraph describing the job and why the user would fit into it", 
-                            "Career 2 - and a paragraph describing the job and why the user would fit into it", 
-                            "Career 3 - and a paragraph describing the job and why the user would fit into it"],
-                            "strengths": ["Strength 1 - and how you decided this", "Strength 2 - and how you decided this"],
-                            "areasForImprovement": ["Improvement 1 - and how you decided this", "Improvement 2 - and how you decided this"]
+                            "recommendedCareers": ["Career 1 + paragraph", Career 2 + paragraph", "Career 3 + paragraph],
+                            "strengths": ["Strength 1 - and how you decided this", "Strength 2 - and how you decided this", "more strengths if applicable"],
+                            "areasForImprovement": ["Improvement 1 - and how this would benefit the user in their specified career", "Improvement 2 - and how this would benefit the user in their specified career", "more improvements if applicable"]
                         }
                         Responses:\n${quizResults}`,
                         },

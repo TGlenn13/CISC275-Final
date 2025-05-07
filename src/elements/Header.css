@@ -25,6 +25,11 @@
     color:black;
 }
 
+.navbutton:disabled{
+    color:gray;
+    background-color: aliceblue;
+}
+
 .navbutton:focus,
 .navbutton:active,
 .navbutton:focus:active {

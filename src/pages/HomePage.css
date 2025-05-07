@@ -7,7 +7,7 @@
 }
 
 .button-container {
-    border-radius: 6px;
+    border-radius: 12px;
     width: 80%;
     height: 80%;
     margin: 2rem auto;
@@ -27,10 +27,11 @@
 
 .button {
     width: 90%;
+    height:auto;
     color:black;
     background-color: rgb(190, 201, 211);
     border: solid 1px black;
-    border-radius:0px;
+    border-radius:8px;
 }
 
 .button:hover{
@@ -55,6 +56,12 @@
     outline: none;
     box-shadow: none;
     transition: none;
+}
+
+.button:disabled{
+    color:gray;
+    background-color: aliceblue;
+    border: solid 1px black;
 }
 
 #header{
