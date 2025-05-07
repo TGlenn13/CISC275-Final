@@ -8,10 +8,11 @@ interface HomePageProps {
   changeKey: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: () => void;
   keyValue: string;
+  error: boolean;
+  setError: (status: boolean) => void;
 }
 
-export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: HomePageProps):React.JSX.Element {
-  const [error, setError] = useState<boolean>(true);
+export function HomePage({ changePage, changeKey, handleSubmit, keyValue, error, setError }: HomePageProps):React.JSX.Element {
 
   async function testKey() {
     const key = JSON.parse(localStorage.getItem("MYKEY") || "");
