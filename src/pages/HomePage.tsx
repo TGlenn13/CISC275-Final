@@ -16,20 +16,22 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue }: Home
       <Row>
         <Col>
           <div className="button-container">
+            <h2>Basic Assessment</h2>
             <p>The basic career assessment features simple multiple-choice questions and takes just
               a few minutes to complete. It’s perfect for anyone seeking a quick nudge toward
               discovering their career path!
             </p>
-            <Button className="button" onClick={() => changePage("basic")}>Basic Career Assessment</Button>
+            <Button className="button" onClick={() => changePage("basic")}>Start Quiz</Button>
           </div>
         </Col>
         <Col>
           <div className="button-container">
+            <h2>Detailed Assessment</h2>
             <p>The detailed career assessment features short answer questions designed
               to dive deeper into your interests and strengths. It takes about 15 minutes to complete and
               provides more personalized insights to help you find the career path that fits you.
             </p>
-            <Button className="button" onClick={() => changePage("detailed")}>Detailed Career Assessment</Button>
+            <Button className="button" onClick={() => changePage("detailed")}>Start Quiz</Button>
           </div>
         </Col>
       </Row>
