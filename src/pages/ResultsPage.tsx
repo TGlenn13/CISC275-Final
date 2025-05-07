@@ -1,5 +1,6 @@
 import  React, {useState, useEffect} from "react";
 import OpenAI from "openai";
+import "./ResultsPage.css";
 import type { ChatCompletion } from "openai/resources/chat/completions";
 
 interface Result {
@@ -66,58 +67,60 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
         }
     }
     return (
-        <div>
-            <h1 className="text-4xl font-semibold mb-4">Career Assessment Results</h1>
+        <div className='ResultsPage'>
+            <div className='TextBox'>
+                <h1 className="text-4xl font-semibold mb-4">Career Assessment Results</h1>
 
 
-            {/* check if loading */
-            loading ? (
-                <p style={{ fontSize: "18px" }}>
-                    Loading...
-                </p>
-            /* check if result is valid */
-            ) : result !== null ? (
-                result.summary && (
-                    <div style={{ fontSize: "18px" }}>
-                        <h2 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "1rem" }}>
-                            Summary
-                        </h2>
-                        <p style={{ fontSize: "18px", marginBottom: "1.5rem" }}>
-                            {result.summary}
-                        </p>
+                {/* check if loading */
+                loading ? (
+                    <p style={{ fontSize: "18px" }}>
+                        Loading...
+                    </p>
+                /* check if result is valid */
+                ) : result !== null ? (
+                    result.summary && (
+                        <div style={{ fontSize: "18px" }}>
+                            <h2 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "1rem" }}>
+                                Summary
+                            </h2>
+                            <p style={{ fontSize: "18px", marginBottom: "1.5rem" }}>
+                                {result.summary}
+                            </p>
 
-                        <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
-                            Recommended Careers
-                        </h3>
-                        <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
-                            {result.recommendedCareers?.map((career, idx) => (
-                                <li key={idx}>{career}</li>
-                            ))}
-                        </ul>
+                            <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                                Recommended Careers
+                            </h3>
+                            <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
+                                {result.recommendedCareers?.map((career, idx) => (
+                                    <li key={idx}>{career}</li>
+                                ))}
+                            </ul>
 
-                        <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
-                            Strengths
-                        </h3>
-                        <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
-                            {result.strengths?.map((strength, idx) => (
-                                <li key={idx}>{strength}</li>
-                            ))}
-                        </ul>
+                            <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                                Strengths
+                            </h3>
+                            <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
+                                {result.strengths?.map((strength, idx) => (
+                                    <li key={idx}>{strength}</li>
+                                ))}
+                            </ul>
 
-                        <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
-                            Areas for Improvement
-                        </h3>
-                        <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
-                            {result.areasForImprovement?.map((area, idx) => (
-                                <li key={idx}>{area}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )
-                /* display error for invalid result */
-            ) : 
-            <p>{error}</p>
-            }
+                            <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                                Areas for Improvement
+                            </h3>
+                            <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+                                {result.areasForImprovement?.map((area, idx) => (
+                                    <li key={idx}>{area}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )
+                    /* display error for invalid result */
+                ) : 
+                <p>{error}</p>
+                }
+            </div>
         </div>
     )
 }
