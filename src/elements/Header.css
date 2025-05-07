@@ -21,7 +21,7 @@
 
 .navbutton:hover {
     cursor: pointer;
-    background-color: rgb(126, 174, 213);
+    background-color: rgb(97, 140, 176);
     color:black;
 }
 
@@ -33,7 +33,7 @@
 .navbutton:focus,
 .navbutton:active,
 .navbutton:focus:active {
-    background-color: rgb(126, 174, 213);
+    background-color: rgb(97, 140, 176);
     color: black;
     outline: none;
     box-shadow: none;

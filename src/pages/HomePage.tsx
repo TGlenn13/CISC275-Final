@@ -44,7 +44,7 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue, error,
               a few minutes to complete. It’s perfect for anyone seeking a quick nudge toward
               discovering their career path!
             </p>
-            <Button className="button" onClick={() => changePage("basic") } disabled={error}>Basic Career Assessment</Button>
+            <Button className="button" onClick={() => changePage("basic") } disabled={error}>Start Assessment</Button>
           </div>
         </Col>
         <Col>
@@ -54,7 +54,7 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue, error,
               to dive deeper into your interests and strengths. It takes about 15 minutes to complete and
               provides more personalized insights to help you find the career path that fits you.
             </p>
-            <Button className="button" onClick={() => changePage("detailed") } disabled={error}>Detailed Career Assessment</Button>
+            <Button className="button" onClick={() => changePage("detailed") } disabled={error}>Start Assessment</Button>
           </div>
         </Col>
       </Row>
