@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "./HomePage.css"
 import OpenAI from "openai";
