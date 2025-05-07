@@ -2,48 +2,24 @@
     padding:10px;
 }
 
-.qbutton{
-    margin:auto;
+.button{
     width:200px;
-    color:black;
-    background-color: rgb(190, 201, 211);
-    border: solid 1px black;
-    border-radius:0px;
-    display:flex;
-    justify-content: center;
 }
 
-.qbutton:disabled{
+.button:disabled{
     color:gray;
     background-color: aliceblue;
     border: solid 1px black;
-
 }
-
-.qbutton:focus,
-.qbutton:active,
-.qbutton:focus:active {
-    background-color: aliceblue;
-    color: black;
-    box-shadow: none;
-    transition: none;
-    border: solid 1px black;
-}
-
-.qbutton:hover{
-    color:black;
-    background-color: rgb(221, 226, 231);
-    border: solid 1px black;
-    box-shadow: 0px 2px 3px black;
-}
-
 
 #next{
+    margin:auto;
     position:relative;
-    left:-155px;
+    left:120px;
 }
 
 #back{
+    margin:auto;
     position: relative;
-    right:-155px;
+    right:-426px;
 }
