@@ -17,6 +17,7 @@ if (prevKey !== null) {
 
 function App() {
   const [quizResponses, setQuizResponses] = useState<string>("");
+  const [APIError, setAPIError] = useState<boolean>(true);
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [page, setPage] = useState<string>("home"); //routes user to the right page, defaulting to home page
   //sets the local storage item to the api key the user inputed
@@ -32,40 +33,26 @@ function App() {
     setPage(pageName);
   }
   
-  if (page === "home") {
-    return (<div className="App">
-      <Header changePage={changePage}></Header>
-      <HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key}></HomePage>
-      <Footer/>
-  </div>)
+  function getPage(page: string) {
+    if (page === "home") {
+      return(<HomePage changePage={changePage} changeKey={changeKey} handleSubmit={handleSubmit} keyValue={key} error={APIError} setError={setAPIError}></HomePage>);
+    } else if (page === "basic") {
+      return(<BasicPage changePage={changePage} setQuizResponses={setQuizResponses}></BasicPage>);
+    } else if (page === "detailed") {
+      return(<DetailedPage changePage={changePage} setQuizResponses={setQuizResponses}></DetailedPage>);
+    } else if (page === "results") {
+      return(<ResultsPage quizResponses={quizResponses}></ResultsPage>);
+    } else {
+      return(<div>Invalid Page</div>);
+    }
   }
-   if (page === "basic") {
-    
-    return(<div className="App">
-      <Header changePage={changePage}></Header>
-       <BasicPage changePage={changePage} setQuizResponses={setQuizResponses}></BasicPage>
-       <Footer/>
-       </div>
-    )
-  }  
-  if (page === "detailed") {
-    return (<div className="App">
-      <Header changePage={changePage}></Header>
-       <DetailedPage changePage={changePage} setQuizResponses={setQuizResponses}></DetailedPage>
-       <Footer/>
-       </div>
-    )
-  }
-  if (page === "results") {
-    return (<div>
-      <Header changePage={changePage}></Header>
-       <ResultsPage quizResponses={quizResponses}></ResultsPage>
-       <Footer/>
-       </div>
-    )
-  }
-  else{
-    return <div>not valid</div>
-  }
+
+  return(
+    <div className="App">
+        <Header changePage={changePage} error={APIError}></Header>
+        {getPage(page)}
+    <Footer/>
+    </div>
+  )
 }
 export default App;
