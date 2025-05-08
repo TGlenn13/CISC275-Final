@@ -33,11 +33,11 @@ export function QuestionPage<Question>(
                 <Col >{renderQuestion(currentPage[3], 3)}</Col>
             </Row>
             <Row>
-            <Col>
-            <Button  className="button" id="back" disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Back</Button>
+            <Col id="backcol">
+            <Button  className="quizbutton" id="back" disabled={pageNum <= 0} onClick={() => setPageNum(pageNum-1)}>Back</Button>
             </Col>
             <Col>
-            <Button className="button" id="next" disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
+            <Button className="quizbutton" id="next" disabled={pageNum >= questionGroups.length-1} onClick={() => setPageNum(pageNum+1)}>Next</Button>
             </Col>
             </Row>
         </div>

@@ -77,8 +77,9 @@ export function DetailedPage({changePage, setQuizResponses}:
     <div id="detailedbox" key={question.name}>
       <label>{question.question}</label>
       <br></br>
-
-      <textarea
+      <textarea id="text"
+      rows={3}
+      cols={20}
       name={question.name}
       value={formData[question.name as keyof typeof formData]}
       onChange={(e) => handleChange(question.name, e.target.value)}
@@ -103,6 +104,7 @@ export function DetailedPage({changePage, setQuizResponses}:
     <div className="DetailedPage">
       <h1 className="hdr">Detailed Career Assessment</h1>
       <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
+      <br></br>
       <form onSubmit={handleSubmit}>
         <QuestionPage questionGroups={detailedQuestions} renderQuestion={renderQuestion}></QuestionPage>
         {}
