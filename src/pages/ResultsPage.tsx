@@ -15,13 +15,17 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
     const [result, setResult] = useState<Result | null>({});
     const [error, setError] = useState<string>("");
       
-
+    // hasPrompted created with the help of chatgpt, this flag persists across renders and prevents double prompts
+    const hasPrompted = React.useRef(false);
     // Run once on mount
     useEffect(() => {
+        if (hasPrompted.current) return;
+
         const key = JSON.parse(localStorage.getItem("MYKEY") || "");
         if (key) {
             const client = new OpenAI({apiKey: key ?? undefined, dangerouslyAllowBrowser: true});
             prompt(client, quizResponses);
+            hasPrompted.current=true;
         }
     }, [quizResponses]);
 
