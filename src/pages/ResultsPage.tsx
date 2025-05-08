@@ -86,36 +86,36 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
                 /* check if result is valid */
                 ) : result !== null ? (
                     result.summary && (
-                        <div style={{ fontSize: "18px" }}>
-                            <h2 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "1rem" }}>
+                        <div className="Text">
+                            <h2 className="Header">
                                 Summary
                             </h2>
-                            <p style={{ fontSize: "18px", marginBottom: "1.5rem" }}>
+                            <p>
                                 {result.summary}
                             </p>
 
-                            <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                            <h3 className="Header">
                                 Recommended Careers
                             </h3>
-                            <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
+                            <ul className="List">
                                 {result.recommendedCareers?.map((career, idx) => (
                                     <li key={idx}>{career}</li>
                                 ))}
                             </ul>
 
-                            <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                            <h3 className="Header">
                                 Strengths
                             </h3>
-                            <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
+                            <ul className="List">
                                 {result.strengths?.map((strength, idx) => (
                                     <li key={idx}>{strength}</li>
                                 ))}
                             </ul>
 
-                            <h3 style={{ fontSize: "30px", fontWeight: "600", marginBottom: "0.5rem" }}>
+                            <h3 className="Header">
                                 Areas for Improvement
                             </h3>
-                            <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+                            <ul className="List" style={{marginBottom: "0rem"}}>
                                 {result.areasForImprovement?.map((area, idx) => (
                                     <li key={idx}>{area}</li>
                                 ))}
