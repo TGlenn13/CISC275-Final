@@ -7,16 +7,18 @@
 
 .hdr{
     text-align:center;
+    margin-top: 3%;
 }
 
 .submit{
     margin:auto;
-    margin-top:80px;
+    margin-bottom: 30px;
+    margin-top:30px;
     width: 200px;
     color:black;
     background-color: rgb(190, 201, 211);
     border: solid 1px black;
-    border-radius:0px;
+    border-radius:8px;
     display:flex;
     justify-content: center;
     position: relative;

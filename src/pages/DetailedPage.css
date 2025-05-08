@@ -4,6 +4,10 @@
     height:auto;
     flex:1;
 }
+#text{
+    resize:none;
+    margin-top:auto;
+}
 
 #detailedbox{
     background-color: whitesmoke;
