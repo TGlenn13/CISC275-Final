@@ -4,6 +4,7 @@ import {QuizProgressBar} from "../quiz-components/ProgressBar";
 import {QuestionPage, Question} from "../quiz-components/QuestionPage";
 import { MultipleChoiceQuestion } from "../quiz-components/MultipleChoiceQuestion";
 import './BasicPage.css';
+import { SubmissionPopup } from "../quiz-components/SubmissionPopup";
 
 // Used to initialize questions with data before all Question fields are filled in
 interface InitialMultipleChoice {
@@ -164,17 +165,7 @@ export function BasicPage({changePage, setQuizResponses}:
             <QuestionPage renderQuestion={renderQuestion} questionGroups={groupedQuestions}></QuestionPage>
             <Button className="submit" disabled={progress!==8} onClick={handleSubmit}>Submit</Button>
         </div>
-        <Modal show={show} onHide={() => setShow(false)}>
-      <Modal.Header closeButton>
-        <Modal.Title>Submission Successful</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>Your responses have been submitted!</Modal.Body>
-      <Modal.Footer>
-        <Button variant="primary" onClick={() => changePage("results")}>
-          Show Results
-        </Button>
-      </Modal.Footer>
-    </Modal>
+    <SubmissionPopup show={show} setShow={setShow} changePage={changePage}></SubmissionPopup>
     </div>
     );
 }
