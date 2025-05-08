@@ -59,8 +59,8 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue, error,
         </Col>
       </Row>
       <Row>
-        <p>{error ? "Invalid API key, please try again." : ""}</p>
         <div className="button-container" id="api-box">
+        <p>{error ? "Invalid API key, please try again before beginning the assessment." : ""}</p>
           <Form>
             <Form.Label>API Key:</Form.Label>
             <Form.Control type="password" placeholder="Insert API Key Here" value={keyValue} onChange={changeKey} />
