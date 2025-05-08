@@ -2,6 +2,7 @@ import  React, {useState, useEffect} from "react";
 import OpenAI from "openai";
 import "./ResultsPage.css";
 import type { ChatCompletion } from "openai/resources/chat/completions";
+import throbber from "../assets/Eclipse@1x-1.0s-200px-200px.svg";
 
 interface Result {
     summary?: string;
@@ -74,9 +75,10 @@ export function ResultsPage({quizResponses}: {quizResponses: string}): React.JSX
 
                 {/* check if loading */
                 loading ? (
-                    <p style={{ fontSize: "18px" }}>
-                        Loading...
-                    </p>
+                    <div>
+                        <p style={{fontSize: "18px"}}>Generating your report...</p>
+                        <img src={throbber} alt="Loading animation"/>
+                    </div>
                 /* check if result is valid */
                 ) : result !== null ? (
                     result.summary && (
