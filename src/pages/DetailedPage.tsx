@@ -6,6 +6,7 @@ import { Question } from "../quiz-components/QuestionPage";
 import { QuestionPage } from "../quiz-components/QuestionPage"
 import { QuestionResponse } from "./BasicPage";
 import "./DetailedPage.css"
+import { SubmissionPopup } from "../quiz-components/SubmissionPopup";
 
 interface FormData {
   strengths: string;
@@ -110,17 +111,7 @@ export function DetailedPage({changePage, setQuizResponses}:
         {}
         <Button className="submit" disabled={progress < 8} type="submit">Submit</Button>
       </form>
-      <Modal show={show} onHide={() => setShow(false)}>
-      <Modal.Header closeButton>
-        <Modal.Title>Submission Successful</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>Your responses have been submitted!</Modal.Body>
-      <Modal.Footer>
-        <Button variant="primary" onClick={() => changePage("results")}>
-          Show Results
-        </Button>
-      </Modal.Footer>
-    </Modal>
+      <SubmissionPopup show={show} setShow={setShow} changePage={changePage}></SubmissionPopup>
     </div>
   );
 }
