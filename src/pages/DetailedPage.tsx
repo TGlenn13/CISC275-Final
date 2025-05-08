@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { QuizProgressBar } from "../quiz-components/ProgressBar";
 import {unformattedDetailedQuestions } from '../quiz-components/DetailedQuestions';
 import { Question } from "../quiz-components/QuestionPage";
