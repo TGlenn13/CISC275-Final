@@ -33,14 +33,19 @@
     background-color: aliceblue;
     border: solid 1px black;
 }
-#backcol{
+
+#backcol, #nextcol {
+    max-width: 535px;
+    width: 100%;
     display: flex;
-    justify-content: end;
-}
-#next{
-    position: end;
+    align-items: center;
+    margin:auto;
 }
 
-#back{
-    margin:auto;
+#backcol {
+    justify-content: flex-end;
+}
+
+#nextcol {
+    justify-content: flex-start;
 }
