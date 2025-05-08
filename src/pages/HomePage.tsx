@@ -35,7 +35,9 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue, error,
 
   return (
     <div className="HomePage">
-      <h1 id="header">Career Helpi</h1>
+      <div id="headerbox">
+        <h1 id="header">Career Helpi</h1>
+      </div>
       <Row>
         <Col>
           <div className="button-container">
