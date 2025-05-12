@@ -5,11 +5,6 @@
     flex:1;
 }
 
-.hdr{
-    text-align:center;
-    margin-top: 3%;
-}
-
 .submit{
     margin:auto;
     margin-bottom: 30px;
@@ -47,3 +42,18 @@
     transition: none;
     border: solid 1px black;
 }
+
+.progressbox {
+    width: 90%;             
+    max-width: 650px;       
+    margin: 20px auto;       
+    padding: 20px;
+    background-color: whitesmoke;
+    box-shadow: 0px 2px 4px black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
