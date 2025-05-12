@@ -158,8 +158,10 @@ export function BasicPage({changePage, setQuizResponses}:
 
     return(
     <div className="BasicPage">
+        <div className="progressbox">
         <h1 className='hdr'>Basic Career Assessment</h1>
         <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
+        </div>
         <br></br>
         <div>
             <QuestionPage renderQuestion={renderQuestion} questionGroups={groupedQuestions}></QuestionPage>
