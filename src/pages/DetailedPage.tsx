@@ -103,8 +103,10 @@ export function DetailedPage({changePage, setQuizResponses}:
 
   return (
     <div className="DetailedPage">
-      <h1 className="hdr">Detailed Career Assessment</h1>
+      <div className="progressbox">
+      <h1>Detailed Career Assessment</h1>
       <QuizProgressBar questions={8} progress={progress}></QuizProgressBar>
+      </div>
       <br></br>
       <form onSubmit={handleSubmit}>
         <QuestionPage questionGroups={detailedQuestions} renderQuestion={renderQuestion}></QuestionPage>
