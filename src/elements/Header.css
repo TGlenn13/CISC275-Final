@@ -1,5 +1,7 @@
 #navbar {
-    display: block;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     padding:0;
     background-color: whitesmoke;
     width:100%;
@@ -16,7 +18,9 @@
     font-size:100%;
     background-color:transparent;
     color:rgb(88, 88, 88);
-    padding:0 15px
+    padding:0 15px;
+    flex: 0 0 auto;
+    white-space:nowrap;
 }
 
 .navbutton:hover {
