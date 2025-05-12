@@ -36,7 +36,8 @@ export function HomePage({ changePage, changeKey, handleSubmit, keyValue, error,
   return (
     <div className="HomePage">
       <div id="headerbox">
-        <h1 id="header">Career Helpi</h1>
+        <span id="logo"></span>
+        <h1 id="title">Career Helpi</h1>
       </div>
       <Row>
         <Col>
