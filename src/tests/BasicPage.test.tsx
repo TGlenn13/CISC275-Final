@@ -1,6 +1,7 @@
-import { render, screen} from '@testing-library/react';
+import { fireEvent, render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {BasicPage} from '../pages/BasicPage';
+import { Button } from 'react-bootstrap';
 
 describe('BasicPage', () => {
     const mockProps = {
@@ -19,14 +20,6 @@ describe('BasicPage', () => {
         expect(screen.getByRole('progressbar')).toBeInTheDocument();
     });
 
-    // test('renders first question page', () => {
-    //     render(<BasicPage {...mockProps} />);
-    //     expect(screen.getByText('1.')).toBeInTheDocument();
-    //     expect(screen.getByText('2.')).toBeInTheDocument();
-    //     expect(screen.getByText('3.')).toBeInTheDocument();
-    //     expect(screen.getByText('4.')).toBeInTheDocument();
-    // });
-
     test('renders submit button', () => {
         render(<BasicPage {...mockProps} />);
         expect(screen.getByText('Submit')).toBeInTheDocument();
@@ -37,4 +30,33 @@ describe('BasicPage', () => {
         const submitButton = screen.getByText('Submit');
         expect(submitButton).toBeDisabled();
     });
+
+    test('next button is enabled on page one', () =>{
+        render(<BasicPage {...mockProps}/>);
+        const nextButton = screen.getByRole('button',{name:/Next/i});
+        expect(nextButton).toBeEnabled();
+    });
+
+    test('next button is disabled on page two', ()=>{
+        render(<BasicPage{...mockProps}/>);
+        const nextButton = screen.getByRole('button',{name:/Next/i});
+        fireEvent.click(nextButton);
+        expect(nextButton).toBeDisabled();
+    });
+
+    test('back button is disabled on page one', () => {
+        render(<BasicPage {...mockProps} />);
+        const backButton = screen.getByRole('button',{name:/Back/i});
+        expect(backButton).toBeDisabled();
+    });
+
+    test('back button is enabled on page two', ()=>{
+        render(<BasicPage{...mockProps}/>);
+        const backButton = screen.getByRole('button',{name:/Back/i});
+        const nextButton = screen.getByRole('button',{name:/Next/i});
+        fireEvent.click(nextButton);
+        expect(backButton).toBeEnabled();
+    });
+
+
 });
