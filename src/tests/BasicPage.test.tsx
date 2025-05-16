@@ -74,7 +74,7 @@ async function finishQuiz() {
         fireEvent.click(screen.getByRole('button', { name: /Next/i }));
         expect(screen.getByRole('button', { name: /Back/i })).toBeEnabled();
     });
-    
+
     test('renders questions 1–4 on page one', () => {
         //Determines if questions are visible based off if the options render
 
@@ -128,5 +128,12 @@ async function finishQuiz() {
         })).toBeInTheDocument();
     });
 
+    test('submission popup appears when quiz is submitted', async () => {
+    await finishQuiz();
+    fireEvent.click(screen.getByRole('button', { name: /submit/i }));
+
+    expect(screen.getByText(/submission successful/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /show results/i })).toBeInTheDocument();
+});
 });
 
