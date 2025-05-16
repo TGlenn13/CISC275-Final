@@ -22,41 +22,36 @@ describe('BasicPage', () => {
 
     test('renders submit button', () => {
         render(<BasicPage {...mockProps} />);
-        expect(screen.getByText('Submit')).toBeInTheDocument();
+        expect(screen.getByRole('button',{name:/Submit/i})).toBeInTheDocument();
     });
 
     test('submit disabled when quiz isnt finished', () => {
         render(<BasicPage {...mockProps} />);
-        const submitButton = screen.getByText('Submit');
-        expect(submitButton).toBeDisabled();
+        expect(screen.getByRole('button',{name:/Submit/i})).toBeDisabled();
     });
 
-    test('next button is enabled on page one', () =>{
-        render(<BasicPage {...mockProps}/>);
-        const nextButton = screen.getByRole('button',{name:/Next/i});
-        expect(nextButton).toBeEnabled();
+    test('next button is enabled on page one', () => {
+        render(<BasicPage {...mockProps} />);
+        expect(screen.getByRole('button', { name: /Next/i })).toBeEnabled();
     });
 
-    test('next button is disabled on page two', ()=>{
-        render(<BasicPage{...mockProps}/>);
-        const nextButton = screen.getByRole('button',{name:/Next/i});
-        fireEvent.click(nextButton);
-        expect(nextButton).toBeDisabled();
+    test('next button is disabled on page two', () => {
+        render(<BasicPage {...mockProps} />);
+        fireEvent.click(screen.getByRole('button', { name: /Next/i }));
+        expect(screen.getByRole('button', { name: /Next/i })).toBeDisabled();
     });
 
     test('back button is disabled on page one', () => {
         render(<BasicPage {...mockProps} />);
-        const backButton = screen.getByRole('button',{name:/Back/i});
-        expect(backButton).toBeDisabled();
+        expect(screen.getByRole('button', { name: /Back/i })).toBeDisabled();
     });
 
-    test('back button is enabled on page two', ()=>{
-        render(<BasicPage{...mockProps}/>);
-        const backButton = screen.getByRole('button',{name:/Back/i});
-        const nextButton = screen.getByRole('button',{name:/Next/i});
-        fireEvent.click(nextButton);
-        expect(backButton).toBeEnabled();
+    test('back button is enabled on page two', () => {
+        render(<BasicPage {...mockProps} />);
+        fireEvent.click(screen.getByRole('button', { name: /Next/i }));
+        expect(screen.getByRole('button', { name: /Back/i })).toBeEnabled();
     });
+
 
 
 });
