@@ -52,6 +52,54 @@ describe('BasicPage', () => {
         expect(screen.getByRole('button', { name: /Back/i })).toBeEnabled();
     });
 
+    test('renders questions 1–4 on page one', () => {
+        render(<BasicPage {...mockProps} />);
+        
+        // Q1
+        expect(screen.getByRole('radio', {
+            name: /leading a team or organizing an event/i
+        })).toBeInTheDocument();
+        
+        // Q2
+        expect(screen.getByRole('radio', {
+            name: /based on logic, facts, and data/i
+        })).toBeInTheDocument();
+        
+        // Q3
+        expect(screen.getByRole('radio', {
+            name: /supportive and empathetic/i
+        })).toBeInTheDocument();
+        
+        // Q4
+        expect(screen.getByRole('radio', {
+            name: /designing, writing, or performing/i
+        })).toBeInTheDocument();
+    });
 
+    test('renders questions 5–8 on page two', () => {
+        render(<BasicPage {...mockProps} />);
+
+        fireEvent.click(screen.getByRole('button', { name: /next/i }));
+
+        // Q5
+        expect(screen.getByRole('radio', {
+            name: /math or science/i
+        })).toBeInTheDocument();
+
+        // Q6
+        expect(screen.getByRole('radio', {
+            name: /imaginative and expressive/i
+        })).toBeInTheDocument();
+
+        // Q7
+        expect(screen.getByRole('radio', {
+            name: /making a positive difference in people’s lives/i
+        })).toBeInTheDocument();
+
+        // Q8
+        expect(screen.getByRole('radio', {
+            name: /financial success and leadership opportunities/i
+        })).toBeInTheDocument();
+    });
 
 });
