@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { HomePage } from "./HomePage";
+import { HomePage } from "../pages/HomePage";
 
 jest.mock("openai", () => ({
     OpenAI: jest.fn().mockImplementation(() => ({
