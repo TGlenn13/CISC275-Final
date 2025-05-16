@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { HomePage } from "../pages/HomePage";
-
+// chatGPT generated
 jest.mock("openai", () => ({
     OpenAI: jest.fn().mockImplementation(() => ({
         models: {
@@ -24,7 +24,7 @@ describe("HomePage", () => {
         Storage.prototype.getItem = jest.fn(() => JSON.stringify(""));
         Storage.prototype.setItem = jest.fn();
     });
-
+// end of chatGPT generated code
     test("renders title", () => {
         render(<HomePage {...mockProps} />);
         expect(screen.getByText("Career Helpi")).toBeInTheDocument();

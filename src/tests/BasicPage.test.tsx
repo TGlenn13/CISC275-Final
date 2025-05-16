@@ -1,6 +1,9 @@
-import { render, screen} from '@testing-library/react';
+import { fireEvent, render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {BasicPage} from '../pages/BasicPage';
+import userEvent from '@testing-library/user-event';
+
+
 
 describe('BasicPage', () => {
     const mockProps = {
@@ -13,28 +16,124 @@ describe('BasicPage', () => {
         setQuizResponses: jest.fn()
     };
 
+async function finishQuiz() {
+    render(<BasicPage {...mockProps} />);
+    await userEvent.click(screen.getByRole('radio', { name: /leading a team or organizing an event/i }));
+    await userEvent.click(screen.getByRole('radio', { name: /based on logic, facts, and data/i }));
+    await userEvent.click(screen.getByRole('radio', { name: /supportive and empathetic/i }));
+    await userEvent.click(screen.getByRole('radio', { name: /designing, writing, or performing/i }));
+
+    await userEvent.click(screen.getByRole('button', { name: /next/i }));
+
+    await userEvent.click(screen.getByRole('radio', { name: /math or science/i }));
+    await userEvent.click(screen.getByRole('radio', { name: /imaginative and expressive/i }));
+    await userEvent.click(screen.getByRole('radio', { name: /making a positive difference in people’s lives/i }));
+    await userEvent.click(screen.getByRole('radio', { name: /financial success and leadership opportunities/i }));
+}
+
+
     test('renders header', () => {
         render(<BasicPage {...mockProps} />);
         expect(screen.getByText('Basic Career Assessment')).toBeInTheDocument();
         expect(screen.getByRole('progressbar')).toBeInTheDocument();
     });
 
-    // test('renders first question page', () => {
-    //     render(<BasicPage {...mockProps} />);
-    //     expect(screen.getByText('1.')).toBeInTheDocument();
-    //     expect(screen.getByText('2.')).toBeInTheDocument();
-    //     expect(screen.getByText('3.')).toBeInTheDocument();
-    //     expect(screen.getByText('4.')).toBeInTheDocument();
-    // });
-
     test('renders submit button', () => {
         render(<BasicPage {...mockProps} />);
-        expect(screen.getByText('Submit')).toBeInTheDocument();
+        expect(screen.getByRole('button',{name:/Submit/i})).toBeInTheDocument();
     });
 
     test('submit disabled when quiz isnt finished', () => {
         render(<BasicPage {...mockProps} />);
-        const submitButton = screen.getByText('Submit');
-        expect(submitButton).toBeDisabled();
+        expect(screen.getByRole('button',{name:/Submit/i})).toBeDisabled();
     });
+
+    test('submit enabled when quiz is finished', async () => {
+        await finishQuiz();
+        expect(screen.getByRole('button', { name: /submit/i })).toBeEnabled();
+    });
+
+    test('next button is enabled on page one', () => {
+        render(<BasicPage {...mockProps} />);
+        expect(screen.getByRole('button', { name: /Next/i })).toBeEnabled();
+    });
+
+    test('next button is disabled on page two', () => {
+        render(<BasicPage {...mockProps} />);
+        fireEvent.click(screen.getByRole('button', { name: /Next/i }));
+        expect(screen.getByRole('button', { name: /Next/i })).toBeDisabled();
+    });
+
+    test('back button is disabled on page one', () => {
+        render(<BasicPage {...mockProps} />);
+        expect(screen.getByRole('button', { name: /Back/i })).toBeDisabled();
+    });
+
+    test('back button is enabled on page two', () => {
+        render(<BasicPage {...mockProps} />);
+        fireEvent.click(screen.getByRole('button', { name: /Next/i }));
+        expect(screen.getByRole('button', { name: /Back/i })).toBeEnabled();
+    });
+
+    test('renders questions 1–4 on page one', () => {
+        //Determines if questions are visible based off if the options render
+
+        render(<BasicPage {...mockProps} />);
+        
+        // Q1
+        expect(screen.getByRole('radio', {
+            name: /leading a team or organizing an event/i
+        })).toBeInTheDocument();
+        
+        // Q2
+        expect(screen.getByRole('radio', {
+            name: /based on logic, facts, and data/i
+        })).toBeInTheDocument();
+        
+        // Q3
+        expect(screen.getByRole('radio', {
+            name: /supportive and empathetic/i
+        })).toBeInTheDocument();
+        
+        // Q4
+        expect(screen.getByRole('radio', {
+            name: /designing, writing, or performing/i
+        })).toBeInTheDocument();
+    });
+
+    test('renders questions 5–8 on page two', () => {
+        //Determines if questions are visible based off if the options render
+        render(<BasicPage {...mockProps} />);
+
+        fireEvent.click(screen.getByRole('button', { name: /next/i }));
+
+        // Q5
+        expect(screen.getByRole('radio', {
+            name: /math or science/i
+        })).toBeInTheDocument();
+
+        // Q6
+        expect(screen.getByRole('radio', {
+            name: /imaginative and expressive/i
+        })).toBeInTheDocument();
+
+        // Q7
+        expect(screen.getByRole('radio', {
+            name: /making a positive difference in people’s lives/i
+        })).toBeInTheDocument();
+
+        // Q8
+        expect(screen.getByRole('radio', {
+            name: /financial success and leadership opportunities/i
+        })).toBeInTheDocument();
+    });
+
+    test('submission popup appears when quiz is submitted', async () => {
+    await finishQuiz();
+    fireEvent.click(screen.getByRole('button', { name: /submit/i }));
+
+    expect(screen.getByText(/submission successful/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /show results/i })).toBeInTheDocument();
 });
+});
+
