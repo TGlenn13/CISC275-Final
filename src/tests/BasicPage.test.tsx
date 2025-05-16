@@ -1,7 +1,7 @@
 import { fireEvent, render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {BasicPage} from '../pages/BasicPage';
-import { Button } from 'react-bootstrap';
+import userEvent from '@testing-library/user-event';
 
 describe('BasicPage', () => {
     const mockProps = {
@@ -30,6 +30,37 @@ describe('BasicPage', () => {
         expect(screen.getByRole('button',{name:/Submit/i})).toBeDisabled();
     });
 
+    test('submit enabled when quiz is finished', () => {
+        render(<BasicPage {...mockProps} />);
+        userEvent.click(screen.getByRole('radio', {
+            name: /leading a team or organizing an event/i
+        }));
+        userEvent.click(screen.getByRole('radio', {
+            name: /based on logic, facts, and data/i
+        }));
+        userEvent.click(screen.getByRole('radio', {
+            name: /supportive and empathetic/i
+        }));
+        userEvent.click(screen.getByRole('radio', {
+            name: /designing, writing, or performing/i
+        }));
+        fireEvent.click(screen.getByRole('button', { name: /Next/i }));
+        userEvent.click(screen.getByRole('radio', {
+            name: /math or science/i
+        }));
+        userEvent.click(screen.getByRole('radio', {
+            name: /imaginative and expressive/i
+        }));
+        userEvent.click(screen.getByRole('radio', {
+            name: /making a positive difference in people’s lives/i
+        }));
+        userEvent.click(screen.getByRole('radio', {
+            name: /financial success and leadership opportunities/i
+        }));
+
+        expect(screen.getByRole('button',{name:/Submit/i})).toBeEnabled();
+    });
+
     test('next button is enabled on page one', () => {
         render(<BasicPage {...mockProps} />);
         expect(screen.getByRole('button', { name: /Next/i })).toBeEnabled();
@@ -53,6 +84,8 @@ describe('BasicPage', () => {
     });
 
     test('renders questions 1–4 on page one', () => {
+        //Determines if questions are visible based off if the options render
+
         render(<BasicPage {...mockProps} />);
         
         // Q1
@@ -77,6 +110,7 @@ describe('BasicPage', () => {
     });
 
     test('renders questions 5–8 on page two', () => {
+        //Determines if questions are visible based off if the options render
         render(<BasicPage {...mockProps} />);
 
         fireEvent.click(screen.getByRole('button', { name: /next/i }));
