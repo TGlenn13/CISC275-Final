@@ -55,34 +55,26 @@ async function finishQuiz() {
 
     test('next button is enabled on page one', () => {
         render(<BasicPage {...mockProps} />);
-        const nextButtons = screen.getAllByRole('button', { name: /Next/i });
-        const enabledNextButton = nextButtons.find(btn => !btn.disabled);
-        expect(enabledNextButton).toBeEnabled();
+        expect(screen.getByRole('button', { name: /Next/i })).toBeEnabled();
     });
 
     test('next button is disabled on page two', () => {
         render(<BasicPage {...mockProps} />);
-        fireEvent.click(screen.getAllByRole('button', { name: /Next/i }).find(btn => !btn.disabled));
-        const nextButtons = screen.getAllByRole('button', { name: /Next/i });
-        const disabledNextButton = nextButtons.find(btn => btn.disabled);
-        expect(disabledNextButton).toBeDisabled();
+        fireEvent.click(screen.getByRole('button', { name: /Next/i }));
+        expect(screen.getByRole('button', { name: /Next/i })).toBeDisabled();
     });
 
     test('back button is disabled on page one', () => {
         render(<BasicPage {...mockProps} />);
-        const backButtons = screen.getAllByRole('button', { name: /Back/i });
-        const disabledBackButton = backButtons.find(btn => btn.disabled);
-        expect(disabledBackButton).toBeDisabled();
+        expect(screen.getByRole('button', { name: /Back/i })).toBeDisabled();
     });
 
     test('back button is enabled on page two', () => {
         render(<BasicPage {...mockProps} />);
-        fireEvent.click(screen.getAllByRole('button', { name: /Next/i }).find(btn => !btn.disabled));
-        const backButtons = screen.getAllByRole('button', { name: /Back/i });
-        const enabledBackButton = backButtons.find(btn => !btn.disabled);
-        expect(enabledBackButton).toBeEnabled();
+        fireEvent.click(screen.getByRole('button', { name: /Next/i }));
+        expect(screen.getByRole('button', { name: /Back/i })).toBeEnabled();
     });
-
+    
     test('renders questions 1–4 on page one', () => {
         //Determines if questions are visible based off if the options render
 
