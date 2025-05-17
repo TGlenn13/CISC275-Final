@@ -23,3 +23,11 @@
     max-width:500px;
     height: 100%;
 }
+
+@media (max-width: 768px) {
+    #detailedbox{
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+    }
+}

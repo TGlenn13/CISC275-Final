@@ -49,3 +49,23 @@
 #nextcol {
     justify-content: flex-start;
 }
+
+@media (max-width: 768px) {
+  #backcol, #nextcol {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  #backcol {
+    order: 1;
+  }
+
+  #nextcol {
+    order: 2;
+  }
+
+  .quizbutton {
+    width: 100%;
+    max-width: 300px;
+  }
+}
