@@ -25,12 +25,12 @@ export function QuestionPage<Question>(
     return (
         <div>
             <Row className="qrow">
-                <Col >{renderQuestion(currentPage[0], 0)}</Col>
-                <Col>{renderQuestion(currentPage[1], 1)}</Col>
+                <Col xs={12} md={6}>{renderQuestion(currentPage[0], 0)}</Col>
+                <Col xs={12} md={6}>{renderQuestion(currentPage[1], 1)}</Col>
             </Row>
             <Row className="qrow">
-                <Col>{renderQuestion(currentPage[2], 2)}</Col>
-                <Col >{renderQuestion(currentPage[3], 3)}</Col>
+                <Col xs={12} md={6}>{renderQuestion(currentPage[2], 2)}</Col>
+                <Col xs={12} md={6}>{renderQuestion(currentPage[3], 3)}</Col>
             </Row>
             <Row>
             <Col id="backcol">
