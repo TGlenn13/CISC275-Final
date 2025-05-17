@@ -6706,7 +6706,7 @@ PASS src/tests/DeatiledPage.test.tsx
       at typeImplementation (node_modules/@testing-library/user-event/dist/type/typeImplementation.js:49:51)
       at Object.type (node_modules/@testing-library/user-event/dist/type/index.js:27:60)
 
-PASS src/tests/BasicPage.test.tsx (5.084 s)
+PASS src/tests/BasicPage.test.tsx
   ● Console
 
     console.error
@@ -9032,5 +9032,5 @@ All files                    |   45.33 |    16.66 |   54.54 |   45.63 |
 Test Suites: 3 passed, 3 total
 Tests:       23 passed, 23 total
 Snapshots:   0 total
-Time:        7.071 s
+Time:        6.953 s
 Ran all test suites.
